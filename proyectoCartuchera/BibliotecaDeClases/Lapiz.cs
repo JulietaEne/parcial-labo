@@ -10,6 +10,10 @@ namespace BibliotecaDeClases
     {
         private string color;
 
+        public Lapiz ()
+        {
+        }
+
         public Lapiz(float precio, string marca, string color) : base(precio, marca)
         {
             this.color = color;

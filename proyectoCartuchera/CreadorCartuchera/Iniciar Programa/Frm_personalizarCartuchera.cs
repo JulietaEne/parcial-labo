@@ -53,7 +53,7 @@ namespace CreadorCartuchera.Iniciar_Programa
         {
             if(AsignarPrecioACartuchera() && AsignarCapacidadACartuchera())
             {
-                MetodosAux.CargarUtiles();
+                MetodosAux.AbrirFormAgregarUtiles(miCartuchera);
             }
             else
             {
@@ -65,9 +65,7 @@ namespace CreadorCartuchera.Iniciar_Programa
         {
             SetearCartucheraOriginal();
             this.Close();
-            MetodosAux.CargarUtiles();
-            
-
+            MetodosAux.AbrirFormAgregarUtiles(miCartuchera);
         }
 
 

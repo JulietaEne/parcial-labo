@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BibliotecaDeClases;
 
 namespace CreadorCartuchera
 {
@@ -30,9 +31,9 @@ namespace CreadorCartuchera
             }
         }
 
-        public static void CargarUtiles()
+        public static void AbrirFormAgregarUtiles(Cartuchera<Util> miCartuchera)
         {
-            Frm_agregarUtiles formAgregarUtiles = new Frm_agregarUtiles();
+            Frm_agregarUtiles formAgregarUtiles = new Frm_agregarUtiles(miCartuchera);
             formAgregarUtiles.ShowDialog();
         }
 

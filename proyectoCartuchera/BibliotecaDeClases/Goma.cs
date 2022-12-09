@@ -10,6 +10,8 @@ namespace BibliotecaDeClases
     {
         private string tipo;
 
+        public Goma()
+        { }
         public Goma(float precio, string marca, string tipo) : base(precio, marca)
         {
             this.tipo = tipo;

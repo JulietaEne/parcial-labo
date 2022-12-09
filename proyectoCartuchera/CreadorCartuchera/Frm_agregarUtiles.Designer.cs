@@ -28,12 +28,218 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.rtbResultado = new System.Windows.Forms.RichTextBox();
+            this.lbl_nombreCartu = new System.Windows.Forms.Label();
+            this.gb_utiles = new System.Windows.Forms.GroupBox();
+            this.btn_seleccionar = new System.Windows.Forms.Button();
+            this.cmb_utiles = new System.Windows.Forms.ComboBox();
+            this.gb_AgregarUtil = new System.Windows.Forms.GroupBox();
+            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.btn_agregar = new System.Windows.Forms.Button();
+            this.cmb_propiety2 = new System.Windows.Forms.ComboBox();
+            this.lbl_inputPropiety2 = new System.Windows.Forms.Label();
+            this.lbl_inputPropiety = new System.Windows.Forms.Label();
+            this.cmb_marca = new System.Windows.Forms.ComboBox();
+            this.lbl_marca = new System.Windows.Forms.Label();
+            this.lbl_inputPrecio = new System.Windows.Forms.Label();
+            this.txb_inputPropiety = new System.Windows.Forms.TextBox();
+            this.txb_inputPrecio = new System.Windows.Forms.TextBox();
+            this.gb_utiles.SuspendLayout();
+            this.gb_AgregarUtil.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // rtbResultado
+            // 
+            this.rtbResultado.Location = new System.Drawing.Point(408, 80);
+            this.rtbResultado.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rtbResultado.Name = "rtbResultado";
+            this.rtbResultado.Size = new System.Drawing.Size(310, 484);
+            this.rtbResultado.TabIndex = 2;
+            this.rtbResultado.Text = "";
+            // 
+            // lbl_nombreCartu
+            // 
+            this.lbl_nombreCartu.AutoSize = true;
+            this.lbl_nombreCartu.Location = new System.Drawing.Point(408, 34);
+            this.lbl_nombreCartu.Name = "lbl_nombreCartu";
+            this.lbl_nombreCartu.Size = new System.Drawing.Size(50, 20);
+            this.lbl_nombreCartu.TabIndex = 3;
+            this.lbl_nombreCartu.Text = "label1";
+            // 
+            // gb_utiles
+            // 
+            this.gb_utiles.Controls.Add(this.btn_seleccionar);
+            this.gb_utiles.Controls.Add(this.cmb_utiles);
+            this.gb_utiles.Location = new System.Drawing.Point(56, 80);
+            this.gb_utiles.Name = "gb_utiles";
+            this.gb_utiles.Size = new System.Drawing.Size(278, 171);
+            this.gb_utiles.TabIndex = 4;
+            this.gb_utiles.TabStop = false;
+            this.gb_utiles.Text = "Seleccione un útil para agregar";
+            // 
+            // btn_seleccionar
+            // 
+            this.btn_seleccionar.Location = new System.Drawing.Point(90, 86);
+            this.btn_seleccionar.Name = "btn_seleccionar";
+            this.btn_seleccionar.Size = new System.Drawing.Size(94, 29);
+            this.btn_seleccionar.TabIndex = 1;
+            this.btn_seleccionar.Text = "seleccionar";
+            this.btn_seleccionar.UseVisualStyleBackColor = true;
+            this.btn_seleccionar.Click += new System.EventHandler(this.btn_seleccionar_Click);
+            // 
+            // cmb_utiles
+            // 
+            this.cmb_utiles.FormattingEnabled = true;
+            this.cmb_utiles.Location = new System.Drawing.Point(18, 38);
+            this.cmb_utiles.Name = "cmb_utiles";
+            this.cmb_utiles.Size = new System.Drawing.Size(242, 28);
+            this.cmb_utiles.TabIndex = 0;
+            this.cmb_utiles.Text = "Seleccione un útil";
+            this.cmb_utiles.SelectedIndexChanged += new System.EventHandler(this.cmb_utiles_SelectedIndexChanged);
+            // 
+            // gb_AgregarUtil
+            // 
+            this.gb_AgregarUtil.Controls.Add(this.btn_cancelar);
+            this.gb_AgregarUtil.Controls.Add(this.btn_agregar);
+            this.gb_AgregarUtil.Controls.Add(this.cmb_propiety2);
+            this.gb_AgregarUtil.Controls.Add(this.lbl_inputPropiety2);
+            this.gb_AgregarUtil.Controls.Add(this.lbl_inputPropiety);
+            this.gb_AgregarUtil.Controls.Add(this.cmb_marca);
+            this.gb_AgregarUtil.Controls.Add(this.lbl_marca);
+            this.gb_AgregarUtil.Controls.Add(this.lbl_inputPrecio);
+            this.gb_AgregarUtil.Controls.Add(this.txb_inputPropiety);
+            this.gb_AgregarUtil.Controls.Add(this.txb_inputPrecio);
+            this.gb_AgregarUtil.Location = new System.Drawing.Point(56, 296);
+            this.gb_AgregarUtil.Name = "gb_AgregarUtil";
+            this.gb_AgregarUtil.Size = new System.Drawing.Size(278, 268);
+            this.gb_AgregarUtil.TabIndex = 5;
+            this.gb_AgregarUtil.TabStop = false;
+            this.gb_AgregarUtil.Text = "gb_AgregarUtil";
+            // 
+            // btn_cancelar
+            // 
+            this.btn_cancelar.Location = new System.Drawing.Point(156, 223);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(94, 29);
+            this.btn_cancelar.TabIndex = 6;
+            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.UseVisualStyleBackColor = true;
+            // 
+            // btn_agregar
+            // 
+            this.btn_agregar.Location = new System.Drawing.Point(33, 223);
+            this.btn_agregar.Name = "btn_agregar";
+            this.btn_agregar.Size = new System.Drawing.Size(94, 29);
+            this.btn_agregar.TabIndex = 6;
+            this.btn_agregar.Text = "Agregar";
+            this.btn_agregar.UseVisualStyleBackColor = true;
+            // 
+            // cmb_propiety2
+            // 
+            this.cmb_propiety2.FormattingEnabled = true;
+            this.cmb_propiety2.Location = new System.Drawing.Point(99, 117);
+            this.cmb_propiety2.Name = "cmb_propiety2";
+            this.cmb_propiety2.Size = new System.Drawing.Size(151, 28);
+            this.cmb_propiety2.TabIndex = 6;
+            // 
+            // lbl_inputPropiety2
+            // 
+            this.lbl_inputPropiety2.AutoSize = true;
+            this.lbl_inputPropiety2.Location = new System.Drawing.Point(21, 117);
+            this.lbl_inputPropiety2.Name = "lbl_inputPropiety2";
+            this.lbl_inputPropiety2.Size = new System.Drawing.Size(129, 20);
+            this.lbl_inputPropiety2.TabIndex = 6;
+            this.lbl_inputPropiety2.Text = "lbl_inputPropiety2";
+            // 
+            // lbl_inputPropiety
+            // 
+            this.lbl_inputPropiety.AutoSize = true;
+            this.lbl_inputPropiety.Location = new System.Drawing.Point(18, 154);
+            this.lbl_inputPropiety.Name = "lbl_inputPropiety";
+            this.lbl_inputPropiety.Size = new System.Drawing.Size(121, 20);
+            this.lbl_inputPropiety.TabIndex = 5;
+            this.lbl_inputPropiety.Text = "lbl_inputPropiety";
+            // 
+            // cmb_marca
+            // 
+            this.cmb_marca.FormattingEnabled = true;
+            this.cmb_marca.Location = new System.Drawing.Point(99, 83);
+            this.cmb_marca.Name = "cmb_marca";
+            this.cmb_marca.Size = new System.Drawing.Size(151, 28);
+            this.cmb_marca.TabIndex = 4;
+            this.cmb_marca.Text = "Seleccione marca";
+            // 
+            // lbl_marca
+            // 
+            this.lbl_marca.AutoSize = true;
+            this.lbl_marca.Location = new System.Drawing.Point(18, 83);
+            this.lbl_marca.Name = "lbl_marca";
+            this.lbl_marca.Size = new System.Drawing.Size(53, 20);
+            this.lbl_marca.TabIndex = 3;
+            this.lbl_marca.Text = "Marca:";
+            // 
+            // lbl_inputPrecio
+            // 
+            this.lbl_inputPrecio.AutoSize = true;
+            this.lbl_inputPrecio.Location = new System.Drawing.Point(18, 50);
+            this.lbl_inputPrecio.Name = "lbl_inputPrecio";
+            this.lbl_inputPrecio.Size = new System.Drawing.Size(53, 20);
+            this.lbl_inputPrecio.TabIndex = 2;
+            this.lbl_inputPrecio.Text = "Precio:";
+            // 
+            // txb_inputPropiety
+            // 
+            this.txb_inputPropiety.Location = new System.Drawing.Point(99, 151);
+            this.txb_inputPropiety.Name = "txb_inputPropiety";
+            this.txb_inputPropiety.PlaceholderText = "txb_propiedad";
+            this.txb_inputPropiety.Size = new System.Drawing.Size(151, 27);
+            this.txb_inputPropiety.TabIndex = 1;
+            this.txb_inputPropiety.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_inputPropiety_KeyPress);
+            // 
+            // txb_inputPrecio
+            // 
+            this.txb_inputPrecio.Location = new System.Drawing.Point(99, 47);
+            this.txb_inputPrecio.Name = "txb_inputPrecio";
+            this.txb_inputPrecio.PlaceholderText = "Ingrese precio";
+            this.txb_inputPrecio.Size = new System.Drawing.Size(151, 27);
+            this.txb_inputPrecio.TabIndex = 0;
+            // 
+            // Frm_agregarUtiles
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(771, 621);
+            this.Controls.Add(this.gb_AgregarUtil);
+            this.Controls.Add(this.gb_utiles);
+            this.Controls.Add(this.lbl_nombreCartu);
+            this.Controls.Add(this.rtbResultado);
+            this.Name = "Frm_agregarUtiles";
             this.Text = "Frm_agregarUtiles";
+            this.Load += new System.EventHandler(this.Frm_agregarUtiles_Load);
+            this.gb_utiles.ResumeLayout(false);
+            this.gb_AgregarUtil.ResumeLayout(false);
+            this.gb_AgregarUtil.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+        private RichTextBox rtbResultado;
+        private Label lbl_nombreCartu;
+        private GroupBox gb_utiles;
+        private GroupBox gb_AgregarUtil;
+        private Button btn_seleccionar;
+        private ComboBox cmb_utiles;
+        private TextBox txb_inputPropiety;
+        private TextBox txb_inputPrecio;
+        private Label lbl_inputPrecio;
+        private Label lbl_inputPropiety;
+        private ComboBox cmb_marca;
+        private Label lbl_marca;
+        private Button btn_agregar;
+        private ComboBox cmb_propiety2;
+        private Label lbl_inputPropiety2;
+        private Button btn_cancelar;
     }
 }

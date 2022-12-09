@@ -37,11 +37,11 @@ namespace BibliotecaDeClases
         lápiz
     }
 
-    public enum eTipoUtil
+    public enum eUtiles
     {
+        Lápiz,
         Goma,
-        Sacapuntas,
-        Lapiz,
-        Fibron
+        Sacapuntas, 
+        Fibrón
     }
 }

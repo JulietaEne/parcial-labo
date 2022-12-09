@@ -12,6 +12,10 @@ namespace BibliotecaDeClases
         protected string marca;
 
         //CONSTRUCTOR
+        public Util()
+        {
+        }
+
         public Util(float precio, string marca)
         {
             this.precio = precio;

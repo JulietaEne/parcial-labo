@@ -10,6 +10,10 @@ namespace BibliotecaDeClases
     {
         private string material;
 
+        public Sacapuntas()
+        {
+        }
+
         public Sacapuntas(float precio, string marca, string material) : base(precio, marca)
         {
             this.material = material;

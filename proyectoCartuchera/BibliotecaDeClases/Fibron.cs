@@ -15,6 +15,9 @@ namespace BibliotecaDeClases
         private int cantidadTinta;
 
         //CONSTRUCTOR
+        public Fibron()
+        {
+        }
         public Fibron(float precio, string marca, string color, int cantidadTinta) : base(precio, marca)
         {
             this.color = color;

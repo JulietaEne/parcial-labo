@@ -74,7 +74,7 @@ namespace CreadorCartuchera.Iniciar_Programa
             }
             else
             {
-                MetodosAux.CargarUtiles();
+                MetodosAux.AbrirFormAgregarUtiles(unaCartuchera);
             }
         }
 
