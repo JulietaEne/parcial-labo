@@ -44,6 +44,10 @@
             this.txb_inputPrecio = new System.Windows.Forms.TextBox();
             this.dgv_utilesMiCartuchera = new System.Windows.Forms.DataGridView();
             this.lbl_nombreCartu = new System.Windows.Forms.Label();
+            this.btn_eliminar = new System.Windows.Forms.Button();
+            this.btn_modificar = new System.Windows.Forms.Button();
+            this.lbl_detalleSeleccionado = new System.Windows.Forms.Label();
+            this.lbl_msjError = new System.Windows.Forms.Label();
             this.gb_utiles.SuspendLayout();
             this.gb_AgregarUtil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_utilesMiCartuchera)).BeginInit();
@@ -82,6 +86,7 @@
             // 
             // gb_AgregarUtil
             // 
+            this.gb_AgregarUtil.Controls.Add(this.lbl_msjError);
             this.gb_AgregarUtil.Controls.Add(this.btn_cancelar);
             this.gb_AgregarUtil.Controls.Add(this.btn_agregar);
             this.gb_AgregarUtil.Controls.Add(this.cmb_propiety2);
@@ -199,6 +204,7 @@
             this.dgv_utilesMiCartuchera.RowTemplate.Height = 29;
             this.dgv_utilesMiCartuchera.Size = new System.Drawing.Size(432, 266);
             this.dgv_utilesMiCartuchera.TabIndex = 6;
+            this.dgv_utilesMiCartuchera.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_utilesMiCartuchera_CellContentClick);
             // 
             // lbl_nombreCartu
             // 
@@ -209,11 +215,50 @@
             this.lbl_nombreCartu.TabIndex = 3;
             this.lbl_nombreCartu.Text = "lbl_nombreCartu";
             // 
+            // btn_eliminar
+            // 
+            this.btn_eliminar.Location = new System.Drawing.Point(750, 404);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Size = new System.Drawing.Size(94, 29);
+            this.btn_eliminar.TabIndex = 7;
+            this.btn_eliminar.Text = "Eliminar";
+            this.btn_eliminar.UseVisualStyleBackColor = true;
+            // 
+            // btn_modificar
+            // 
+            this.btn_modificar.Location = new System.Drawing.Point(650, 404);
+            this.btn_modificar.Name = "btn_modificar";
+            this.btn_modificar.Size = new System.Drawing.Size(94, 29);
+            this.btn_modificar.TabIndex = 8;
+            this.btn_modificar.Text = "Modificar";
+            this.btn_modificar.UseVisualStyleBackColor = true;
+            // 
+            // lbl_detalleSeleccionado
+            // 
+            this.lbl_detalleSeleccionado.AutoSize = true;
+            this.lbl_detalleSeleccionado.Location = new System.Drawing.Point(408, 369);
+            this.lbl_detalleSeleccionado.Name = "lbl_detalleSeleccionado";
+            this.lbl_detalleSeleccionado.Size = new System.Drawing.Size(167, 20);
+            this.lbl_detalleSeleccionado.TabIndex = 10;
+            this.lbl_detalleSeleccionado.Text = "lbl_detalleSeleccionado";
+            // 
+            // lbl_msjError
+            // 
+            this.lbl_msjError.AutoSize = true;
+            this.lbl_msjError.Location = new System.Drawing.Point(21, 191);
+            this.lbl_msjError.Name = "lbl_msjError";
+            this.lbl_msjError.Size = new System.Drawing.Size(87, 20);
+            this.lbl_msjError.TabIndex = 7;
+            this.lbl_msjError.Text = "lbl_msjError";
+            // 
             // Frm_agregarUtiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 621);
+            this.Controls.Add(this.lbl_detalleSeleccionado);
+            this.Controls.Add(this.btn_modificar);
+            this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.dgv_utilesMiCartuchera);
             this.Controls.Add(this.gb_AgregarUtil);
             this.Controls.Add(this.gb_utiles);
@@ -248,5 +293,9 @@
         private Button btn_cancelar;
         private DataGridView dgv_utilesMiCartuchera;
         private Label lbl_nombreCartu;
+        private Button btn_eliminar;
+        private Button btn_modificar;
+        private Label lbl_detalleSeleccionado;
+        private Label lbl_msjError;
     }
 }
