@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rtbResultado = new System.Windows.Forms.RichTextBox();
-            this.lbl_nombreCartu = new System.Windows.Forms.Label();
             this.gb_utiles = new System.Windows.Forms.GroupBox();
             this.btn_seleccionar = new System.Windows.Forms.Button();
             this.cmb_utiles = new System.Windows.Forms.ComboBox();
@@ -44,27 +42,12 @@
             this.lbl_inputPrecio = new System.Windows.Forms.Label();
             this.txb_inputPropiety = new System.Windows.Forms.TextBox();
             this.txb_inputPrecio = new System.Windows.Forms.TextBox();
+            this.dgv_utilesMiCartuchera = new System.Windows.Forms.DataGridView();
+            this.lbl_nombreCartu = new System.Windows.Forms.Label();
             this.gb_utiles.SuspendLayout();
             this.gb_AgregarUtil.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_utilesMiCartuchera)).BeginInit();
             this.SuspendLayout();
-            // 
-            // rtbResultado
-            // 
-            this.rtbResultado.Location = new System.Drawing.Point(408, 80);
-            this.rtbResultado.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rtbResultado.Name = "rtbResultado";
-            this.rtbResultado.Size = new System.Drawing.Size(310, 484);
-            this.rtbResultado.TabIndex = 2;
-            this.rtbResultado.Text = "";
-            // 
-            // lbl_nombreCartu
-            // 
-            this.lbl_nombreCartu.AutoSize = true;
-            this.lbl_nombreCartu.Location = new System.Drawing.Point(408, 34);
-            this.lbl_nombreCartu.Name = "lbl_nombreCartu";
-            this.lbl_nombreCartu.Size = new System.Drawing.Size(50, 20);
-            this.lbl_nombreCartu.TabIndex = 3;
-            this.lbl_nombreCartu.Text = "label1";
             // 
             // gb_utiles
             // 
@@ -124,6 +107,7 @@
             this.btn_cancelar.TabIndex = 6;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // btn_agregar
             // 
@@ -133,6 +117,7 @@
             this.btn_agregar.TabIndex = 6;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
             // cmb_propiety2
             // 
@@ -203,30 +188,50 @@
             this.txb_inputPrecio.PlaceholderText = "Ingrese precio";
             this.txb_inputPrecio.Size = new System.Drawing.Size(151, 27);
             this.txb_inputPrecio.TabIndex = 0;
+            this.txb_inputPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_inputPrecio_KeyPress);
+            // 
+            // dgv_utilesMiCartuchera
+            // 
+            this.dgv_utilesMiCartuchera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_utilesMiCartuchera.Location = new System.Drawing.Point(408, 80);
+            this.dgv_utilesMiCartuchera.Name = "dgv_utilesMiCartuchera";
+            this.dgv_utilesMiCartuchera.RowHeadersWidth = 51;
+            this.dgv_utilesMiCartuchera.RowTemplate.Height = 29;
+            this.dgv_utilesMiCartuchera.Size = new System.Drawing.Size(432, 266);
+            this.dgv_utilesMiCartuchera.TabIndex = 6;
+            // 
+            // lbl_nombreCartu
+            // 
+            this.lbl_nombreCartu.AutoSize = true;
+            this.lbl_nombreCartu.Location = new System.Drawing.Point(408, 47);
+            this.lbl_nombreCartu.Name = "lbl_nombreCartu";
+            this.lbl_nombreCartu.Size = new System.Drawing.Size(119, 20);
+            this.lbl_nombreCartu.TabIndex = 3;
+            this.lbl_nombreCartu.Text = "lbl_nombreCartu";
             // 
             // Frm_agregarUtiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 621);
+            this.ClientSize = new System.Drawing.Size(856, 621);
+            this.Controls.Add(this.dgv_utilesMiCartuchera);
             this.Controls.Add(this.gb_AgregarUtil);
             this.Controls.Add(this.gb_utiles);
             this.Controls.Add(this.lbl_nombreCartu);
-            this.Controls.Add(this.rtbResultado);
             this.Name = "Frm_agregarUtiles";
             this.Text = "Frm_agregarUtiles";
             this.Load += new System.EventHandler(this.Frm_agregarUtiles_Load);
             this.gb_utiles.ResumeLayout(false);
             this.gb_AgregarUtil.ResumeLayout(false);
             this.gb_AgregarUtil.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_utilesMiCartuchera)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private RichTextBox rtbResultado;
-        private Label lbl_nombreCartu;
+        private RichTextBox rtb_Resultado;
         private GroupBox gb_utiles;
         private GroupBox gb_AgregarUtil;
         private Button btn_seleccionar;
@@ -241,5 +246,7 @@
         private ComboBox cmb_propiety2;
         private Label lbl_inputPropiety2;
         private Button btn_cancelar;
+        private DataGridView dgv_utilesMiCartuchera;
+        private Label lbl_nombreCartu;
     }
 }

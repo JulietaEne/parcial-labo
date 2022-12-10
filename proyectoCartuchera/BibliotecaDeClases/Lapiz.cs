@@ -22,6 +22,7 @@ namespace BibliotecaDeClases
         public string Color
         {
             get { return color; }
+            set { color = value; }
         }
 
         public override string Titulo()

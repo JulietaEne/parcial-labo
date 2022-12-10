@@ -28,11 +28,16 @@ namespace BibliotecaDeClases
         public string Color
         {
             get { return color; }
+            set { color = value; }
         }
 
         public int CantidadTinta
         {
             get { return cantidadTinta; }
+            set
+            {
+                cantidadTinta = value;
+            }
         }
 
         public override string Titulo()

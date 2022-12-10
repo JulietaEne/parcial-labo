@@ -8,8 +8,10 @@ namespace BibliotecaDeClases
 {
     public abstract class Util
     {
+        protected string tipoUtil;
         protected float precio;
         protected string marca;
+        
 
         //CONSTRUCTOR
         public Util()
@@ -33,6 +35,12 @@ namespace BibliotecaDeClases
         {
             get { return marca; }
             set { marca = value; }
+        }
+
+        public string TipoUtil
+        {
+            get { return tipoUtil; }
+            set { tipoUtil = value; }
         }
 
         public virtual string Titulo()

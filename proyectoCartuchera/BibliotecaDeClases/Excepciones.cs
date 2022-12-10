@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BibliotecaDeClases
 {
     [Serializable]
-    internal class Excepciones : Exception
+    public class Excepciones : Exception
     {
         public string CartucheraLlenaException()
         {

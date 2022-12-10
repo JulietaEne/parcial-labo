@@ -19,6 +19,12 @@ namespace BibliotecaDeClases
             this.material = material;
         }
 
+        public string Material
+        {
+            get { return this.material; }
+            set { this.material = value; }
+        }
+
         public override string Titulo()
         {
             return base.Titulo() + " Sacapuntas";

@@ -14,6 +14,7 @@ namespace BibliotecaDeClases
         private int capacidadCartuchera;
         private List<T> listaUtiles = new List<T>();
         private float precioEvento;
+        private List<Lapiz> listaLapices;
         //private string mensajeTicket;
 
         public event Func<float> eventoPrecio;
@@ -37,6 +38,45 @@ namespace BibliotecaDeClases
         public List<T> ListaUtiles
         {
             get { return listaUtiles; }
+        }
+
+        public List<Util> MostrarListaUtiles()
+        {
+            List<Util> unaLista = new List<Util> ();
+            foreach (Util unUtil in listaUtiles)
+            {
+                if (unUtil is Lapiz)
+                {
+                    unaLista.Add((Lapiz)unUtil);
+                }
+                else if(unUtil is Goma)
+                {
+                    unaLista.Add((Goma)unUtil);
+                }
+                else if(unUtil is Sacapuntas)
+                {
+                    unaLista.Add((Sacapuntas)unUtil);
+                }
+                else if(unUtil is Fibron)
+                {
+                    unaLista.Add((Fibron)unUtil);
+                }
+            }
+            return unaLista;
+        }
+
+        public List<Lapiz> MostrarListaLapices()
+        {
+            listaLapices = new List<Lapiz>();
+
+            foreach (Util unUtil in listaUtiles)
+            {
+                if(unUtil is Lapiz)
+                {
+                    listaLapices.Add((Lapiz)unUtil);
+                }
+            }
+            return listaLapices;
         }
         /*public string MensajeTicket
         {

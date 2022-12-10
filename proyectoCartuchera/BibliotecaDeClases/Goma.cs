@@ -17,6 +17,12 @@ namespace BibliotecaDeClases
             this.tipo = tipo;
         }
 
+        public string Tipo
+        {
+            get { return tipo; }
+            set { tipo = value; }
+        }
+
         public override string Titulo()
         {
             return base.Titulo() + " Goma";
