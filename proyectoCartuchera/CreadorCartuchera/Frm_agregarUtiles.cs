@@ -15,7 +15,8 @@ namespace CreadorCartuchera
     public partial class Frm_agregarUtiles : Form
     {
         Cartuchera<Util> miCartuchera;
-        Util unUtil; 
+        Util unUtil;
+        int utilSeleccionado; 
         //List<Util> listaPrueba = new List<Util>();
 
         //CONSTRUCTOR
@@ -44,7 +45,7 @@ namespace CreadorCartuchera
             //eUtiles utilSeleccionado = (eUtiles)cmbIndice;
 
 
-            MostrarPropiedadesSegunUtil(utilSeleccionado);
+            MostrarPropiedadesSegunUtil(utilSeleccionado, true);
 
         }
         private void txb_inputPrecio_KeyPress(object sender, KeyPressEventArgs e)
@@ -86,37 +87,33 @@ namespace CreadorCartuchera
 
         private void dgv_utilesMiCartuchera_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int filaSeleccionada = dgv_utilesMiCartuchera.CurrentRow.Index;
+            utilSeleccionado = dgv_utilesMiCartuchera.CurrentRow.Index;
             MostrarBotonesDGV(true);
             MostrarSeccionSetearUtil(false);
             //logica de elegir un elemento >> lbl_detalleSeleccionado.Text = $"....";
-            if(filaSeleccionada > -1)
+            if(utilSeleccionado > -1)
             {
-                lbl_detalleSeleccionado.Text = MensajeUtilSeleccionado(filaSeleccionada);
+                lbl_detalleSeleccionado.Text = MensajeUtilSeleccionado(utilSeleccionado);
             }
         }
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
             MostrarSeccionModificarUtil(true);
-            MostrarPropiedadesSegunUtil(unUtil.TipoUtil);
+            //MostrarPropiedadesSegunUtil(unUtil.TipoUtil, true);
         }
 
         private void btn_aceptarModificarUtil_Click(object sender, EventArgs e)
         {
-            //tengo 
+            //tengo que agarrar el util a modificar y setearle las nuevas cosas. no pasa nada si hay un campo sin info, en ese caso no se setea nada
+            SetearValoresIngresadosEnUtil();
+            //tengo que cargar el util en el mismo index que ocupaba
+            miCartuchera.SobrescribirObjeto(unUtil, utilSeleccionado); //POR QUE NO ANDA??
             MostrarSeccionDGView(true);
+            MostrarSeccionModificarUtil(false); 
         }
 
-        private void MostrarSeccionModificarUtil(bool visible)
-        {
-            //MostrarSeccionSetearUtil(visible);
-            MostrarPropiedadesSegunUtil(unUtil.TipoUtil);
-            btn_aceptarModificarUtil.Visible = visible;
-            
-            btn_agregar.Visible = false;
-            btn_aceptarModificarUtil.Location = btn_agregar.Location;
-        }
+       
 
 
         //METODOS AUX
@@ -140,9 +137,9 @@ namespace CreadorCartuchera
 
         
 
-        private void MostrarPropiedadesSegunUtil(eUtiles tipoUtil)
+        private void MostrarPropiedadesSegunUtil(eUtiles tipoUtil, bool visible)
         {
-            MostrarSeccionSetearUtil(true);
+            MostrarSeccionSetearUtil(visible);
             switch(tipoUtil)
             {
                 case eUtiles.Lápiz:
@@ -329,6 +326,15 @@ namespace CreadorCartuchera
             }
         }
 
-        
+        private void MostrarSeccionModificarUtil(bool visible)
+        {
+            //MostrarSeccionSetearUtil(visible);
+            MostrarPropiedadesSegunUtil(unUtil.TipoUtil, visible);
+            btn_aceptarModificarUtil.Visible = visible;
+
+            btn_agregar.Visible = false;
+        }
+
+
     }
 }

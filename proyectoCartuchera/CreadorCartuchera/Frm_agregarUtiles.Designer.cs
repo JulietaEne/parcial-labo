@@ -87,6 +87,7 @@
             // 
             // gb_AgregarUtil
             // 
+            this.gb_AgregarUtil.Controls.Add(this.btn_aceptarModificarUtil);
             this.gb_AgregarUtil.Controls.Add(this.lbl_msjError);
             this.gb_AgregarUtil.Controls.Add(this.btn_cancelar);
             this.gb_AgregarUtil.Controls.Add(this.btn_agregar);
@@ -100,7 +101,7 @@
             this.gb_AgregarUtil.Controls.Add(this.txb_inputPrecio);
             this.gb_AgregarUtil.Location = new System.Drawing.Point(56, 296);
             this.gb_AgregarUtil.Name = "gb_AgregarUtil";
-            this.gb_AgregarUtil.Size = new System.Drawing.Size(278, 299);
+            this.gb_AgregarUtil.Size = new System.Drawing.Size(278, 269);
             this.gb_AgregarUtil.TabIndex = 5;
             this.gb_AgregarUtil.TabStop = false;
             this.gb_AgregarUtil.Text = "gb_AgregarUtil";
@@ -256,7 +257,7 @@
             // 
             // btn_aceptarModificarUtil
             // 
-            this.btn_aceptarModificarUtil.Location = new System.Drawing.Point(89, 554);
+            this.btn_aceptarModificarUtil.Location = new System.Drawing.Point(33, 223);
             this.btn_aceptarModificarUtil.Name = "btn_aceptarModificarUtil";
             this.btn_aceptarModificarUtil.Size = new System.Drawing.Size(94, 29);
             this.btn_aceptarModificarUtil.TabIndex = 11;
@@ -269,7 +270,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 621);
-            this.Controls.Add(this.btn_aceptarModificarUtil);
             this.Controls.Add(this.lbl_detalleSeleccionado);
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.btn_eliminar);

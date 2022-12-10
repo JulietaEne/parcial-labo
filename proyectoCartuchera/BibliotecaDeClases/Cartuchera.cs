@@ -111,6 +111,13 @@ namespace BibliotecaDeClases
             }
         }
 
+        public void SobrescribirObjeto(Util utilModificado, int posicion)
+        {
+            listaUtiles[posicion] = (T)utilModificado;
+
+           //return listaUtiles;
+        }
+
         public List<Fibron> ListarFibrones()
         {
             List<Fibron> lista = new List<Fibron>();
