@@ -32,6 +32,7 @@
             this.btn_seleccionar = new System.Windows.Forms.Button();
             this.cmb_utiles = new System.Windows.Forms.ComboBox();
             this.gb_AgregarUtil = new System.Windows.Forms.GroupBox();
+            this.btn_aceptarModificarUtil = new System.Windows.Forms.Button();
             this.lbl_msjError = new System.Windows.Forms.Label();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
@@ -48,7 +49,6 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.lbl_detalleSeleccionado = new System.Windows.Forms.Label();
-            this.btn_aceptarModificarUtil = new System.Windows.Forms.Button();
             this.gb_utiles.SuspendLayout();
             this.gb_AgregarUtil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_utilesMiCartuchera)).BeginInit();
@@ -106,11 +106,21 @@
             this.gb_AgregarUtil.TabStop = false;
             this.gb_AgregarUtil.Text = "gb_AgregarUtil";
             // 
+            // btn_aceptarModificarUtil
+            // 
+            this.btn_aceptarModificarUtil.Location = new System.Drawing.Point(33, 223);
+            this.btn_aceptarModificarUtil.Name = "btn_aceptarModificarUtil";
+            this.btn_aceptarModificarUtil.Size = new System.Drawing.Size(94, 29);
+            this.btn_aceptarModificarUtil.TabIndex = 11;
+            this.btn_aceptarModificarUtil.Text = "Aceptar";
+            this.btn_aceptarModificarUtil.UseVisualStyleBackColor = true;
+            this.btn_aceptarModificarUtil.Click += new System.EventHandler(this.btn_aceptarModificarUtil_Click);
+            // 
             // lbl_msjError
             // 
             this.lbl_msjError.AutoSize = true;
             this.lbl_msjError.ForeColor = System.Drawing.Color.Red;
-            this.lbl_msjError.Location = new System.Drawing.Point(21, 191);
+            this.lbl_msjError.Location = new System.Drawing.Point(0, 190);
             this.lbl_msjError.Name = "lbl_msjError";
             this.lbl_msjError.Size = new System.Drawing.Size(87, 20);
             this.lbl_msjError.TabIndex = 7;
@@ -235,6 +245,7 @@
             this.btn_eliminar.TabIndex = 7;
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_modificar
             // 
@@ -254,16 +265,6 @@
             this.lbl_detalleSeleccionado.Size = new System.Drawing.Size(167, 20);
             this.lbl_detalleSeleccionado.TabIndex = 10;
             this.lbl_detalleSeleccionado.Text = "lbl_detalleSeleccionado";
-            // 
-            // btn_aceptarModificarUtil
-            // 
-            this.btn_aceptarModificarUtil.Location = new System.Drawing.Point(33, 223);
-            this.btn_aceptarModificarUtil.Name = "btn_aceptarModificarUtil";
-            this.btn_aceptarModificarUtil.Size = new System.Drawing.Size(94, 29);
-            this.btn_aceptarModificarUtil.TabIndex = 11;
-            this.btn_aceptarModificarUtil.Text = "Aceptar";
-            this.btn_aceptarModificarUtil.UseVisualStyleBackColor = true;
-            this.btn_aceptarModificarUtil.Click += new System.EventHandler(this.btn_aceptarModificarUtil_Click);
             // 
             // Frm_agregarUtiles
             // 

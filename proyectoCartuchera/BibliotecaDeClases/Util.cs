@@ -28,7 +28,10 @@ namespace BibliotecaDeClases
         public float Precio
         {
             get { return precio; }
-            set { precio = value; } //validar con una exception!
+            set { 
+                    if(value > 0) 
+                    precio = value;
+                }
         }
 
         public string Marca

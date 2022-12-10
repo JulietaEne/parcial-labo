@@ -76,6 +76,7 @@ namespace CreadorCartuchera
             }
         }
 
+
        
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -100,20 +101,41 @@ namespace CreadorCartuchera
         private void btn_modificar_Click(object sender, EventArgs e)
         {
             MostrarSeccionModificarUtil(true);
+            
             //MostrarPropiedadesSegunUtil(unUtil.TipoUtil, true);
         }
 
         private void btn_aceptarModificarUtil_Click(object sender, EventArgs e)
         {
             //tengo que agarrar el util a modificar y setearle las nuevas cosas. no pasa nada si hay un campo sin info, en ese caso no se setea nada
-            SetearValoresIngresadosEnUtil();
-            //tengo que cargar el util en el mismo index que ocupaba
-            miCartuchera.SobrescribirObjeto(unUtil, utilSeleccionado); //POR QUE NO ANDA??
-            MostrarSeccionDGView(true);
-            MostrarSeccionModificarUtil(false); 
+            if (string.IsNullOrEmpty(txb_inputPrecio.Text) || (unUtil is Fibron && string.IsNullOrEmpty(txb_inputPropiety.Text)))
+            {
+                MensajeErrorAgregarUtil(true);
+            }
+            else
+            {
+                MensajeErrorAgregarUtil(false);
+                SetearValoresIngresadosEnUtil();
+                miCartuchera.SobrescribirUtil(unUtil, utilSeleccionado);
+                MostrarSeccionModificarUtil(false);
+                MostrarSeccionDGView(true);
+                lbl_detalleSeleccionado.Visible = false; 
+            } 
         }
 
-       
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show($"Está a pinto de eliminar un útil de la cartuchera: {MensajeUtilSeleccionado(utilSeleccionado)}", "Confirmar eliminación", MessageBoxButtons.OKCancel);
+            if(result == DialogResult.OK)
+            {
+                miCartuchera.EliminarUtil(unUtil, utilSeleccionado);
+                MostrarSeccionDGView(true);
+                lbl_detalleSeleccionado.Visible = false;
+            }
+        
+        }
+
+
 
 
         //METODOS AUX
@@ -132,6 +154,7 @@ namespace CreadorCartuchera
         private void MostrarSeccionSetearUtil(bool visibilidad)
         {
             gb_AgregarUtil.Visible = visibilidad;
+            btn_agregar.Visible = visibilidad; 
             SeccionFibronVisible(false);
         }
 
@@ -139,6 +162,7 @@ namespace CreadorCartuchera
 
         private void MostrarPropiedadesSegunUtil(eUtiles tipoUtil, bool visible)
         {
+           
             MostrarSeccionSetearUtil(visible);
             switch(tipoUtil)
             {
@@ -306,7 +330,7 @@ namespace CreadorCartuchera
             lbl_msjError.Visible = visible;
 
             if (visible)
-                lbl_msjError.Text = "Para continuar, complete todos los campos";
+                lbl_msjError.Text = "Erorr para continuar \nComplete todos los campos";
             else
                 lbl_msjError.Text = " ";
         }
@@ -335,6 +359,6 @@ namespace CreadorCartuchera
             btn_agregar.Visible = false;
         }
 
-
+        
     }
 }
