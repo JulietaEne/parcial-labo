@@ -64,7 +64,8 @@ namespace BibliotecaDeClases
             if (Directory.Exists(ruta))
             {
                 rutaCompleta = BuscarArchivo(ruta, archivo);
-                if (rutaCompleta != null)
+                datos = MostrarArchivo(rutaCompleta);
+                /*if (rutaCompleta != null)
                 {
                     using (StreamReader sr = new StreamReader(rutaCompleta))
                     {
@@ -76,9 +77,33 @@ namespace BibliotecaDeClases
                 else
                 {
                     throw new Exception();
-                }
+                }*/
             }
             return datos;
+        }
+
+        public static string LeerArchivoIndicado(string rutaIngresada)
+        {
+            return MostrarArchivo(rutaIngresada); 
+        }
+
+        private static string MostrarArchivo(string rutaCompleta)
+        {
+            string datos = string.Empty;
+            if (rutaCompleta != null)
+            {
+                using (StreamReader sr = new StreamReader(rutaCompleta))
+                {
+                    string line;
+                    line = sr.ReadToEnd();
+                    datos += line;
+                }
+            }
+            else
+            {
+                throw new Exception();
+            }
+            return datos; 
         }
 
     }

@@ -35,7 +35,8 @@ namespace CreadorCartuchera.Archivos
             {
                 try
                 {
-                    rtxb_leerTicket.Text = ManejadorArchivos.LeerArchivo(openFileDialog1.FileName);
+                    rtxb_leerTicket.Text = ManejadorArchivos.LeerArchivoIndicado(openFileDialog1.FileName);
+                    lbl_ruta.Text = $"Archivo guardado en: {openFileDialog1.FileName}";
                 }
                 catch(Exception)
                 {
