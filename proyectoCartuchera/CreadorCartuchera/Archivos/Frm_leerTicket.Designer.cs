@@ -31,6 +31,8 @@
             this.rtxb_leerTicket = new System.Windows.Forms.RichTextBox();
             this.lbl_ruta = new System.Windows.Forms.Label();
             this.btn_atras = new System.Windows.Forms.Button();
+            this.btn_abrir = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // rtxb_leerTicket
@@ -38,7 +40,7 @@
             this.rtxb_leerTicket.Enabled = false;
             this.rtxb_leerTicket.Location = new System.Drawing.Point(28, 71);
             this.rtxb_leerTicket.Name = "rtxb_leerTicket";
-            this.rtxb_leerTicket.Size = new System.Drawing.Size(695, 340);
+            this.rtxb_leerTicket.Size = new System.Drawing.Size(743, 340);
             this.rtxb_leerTicket.TabIndex = 0;
             this.rtxb_leerTicket.Text = "";
             // 
@@ -61,11 +63,27 @@
             this.btn_atras.UseVisualStyleBackColor = false;
             this.btn_atras.Click += new System.EventHandler(this.btn_atras_Click);
             // 
+            // btn_abrir
+            // 
+            this.btn_abrir.Location = new System.Drawing.Point(677, 25);
+            this.btn_abrir.Name = "btn_abrir";
+            this.btn_abrir.Size = new System.Drawing.Size(94, 29);
+            this.btn_abrir.TabIndex = 3;
+            this.btn_abrir.Text = "Abrir otro log";
+            this.btn_abrir.UseVisualStyleBackColor = true;
+            this.btn_abrir.Click += new System.EventHandler(this.btn_abrir_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Archivos txt(*.txt)|*.txt | Archivos log (*.log)|*.log";
+            // 
             // Frm_leerTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 478);
+            this.Controls.Add(this.btn_abrir);
             this.Controls.Add(this.btn_atras);
             this.Controls.Add(this.lbl_ruta);
             this.Controls.Add(this.rtxb_leerTicket);
@@ -82,5 +100,7 @@
         private RichTextBox rtxb_leerTicket;
         private Label lbl_ruta;
         private Button btn_atras;
+        private Button btn_abrir;
+        private OpenFileDialog openFileDialog1;
     }
 }

@@ -28,5 +28,20 @@ namespace CreadorCartuchera.Archivos
         {
             this.Close();
         }
+
+        private void btn_abrir_Click(object sender, EventArgs e)
+        {
+            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    rtxb_leerTicket.Text = ManejadorArchivos.LeerArchivo(openFileDialog1.FileName);
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("Imposible abrir archivo solicitado","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

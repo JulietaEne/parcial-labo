@@ -417,8 +417,8 @@ namespace CreadorCartuchera
         private void MostrarSeccionTicket(bool visible)
         {
             lbl_montoTotal.Text = $"Monto de la cartuchera: ${miCartuchera.PrecioTotalCartuchera}";
-            lbl_montoTotal.Visible = true;
-            btn_leerTicket.Visible = true;
+            lbl_montoTotal.Visible = visible;
+            btn_leerTicket.Visible = visible;
         }
 
         
