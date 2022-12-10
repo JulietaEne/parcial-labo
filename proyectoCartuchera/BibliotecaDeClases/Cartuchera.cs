@@ -191,5 +191,10 @@ namespace BibliotecaDeClases
             return precioTotal;
         }
 
+        public Util BuscarUtilPorIndice(int indice)
+        {
+            return listaUtiles[indice];
+        }
+
     }
 }

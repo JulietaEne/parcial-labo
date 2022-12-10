@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -34,16 +35,16 @@ namespace CreadorCartuchera
         private void cmb_utiles_SelectedIndexChanged(object sender, EventArgs e)
         {
             btn_seleccionar.Visible = true;
-            MostrarSeccionAgregarUtil(false);
+            MostrarSeccionSetearUtil(false);
         }
 
         private void btn_seleccionar_Click(object sender, EventArgs e)
         {
-            int cmbIndice = cmb_utiles.SelectedIndex;
-            //string utilSeleccionado = cmbIndice.ToString();
+            eUtiles utilSeleccionado = (eUtiles)cmb_utiles.SelectedIndex;
+            //eUtiles utilSeleccionado = (eUtiles)cmbIndice;
 
 
-            MostrarPropiedadesSegunUtil(cmbIndice);
+            MostrarPropiedadesSegunUtil(utilSeleccionado);
 
         }
         private void txb_inputPrecio_KeyPress(object sender, KeyPressEventArgs e)
@@ -62,40 +63,60 @@ namespace CreadorCartuchera
         {
             if(string.IsNullOrEmpty(txb_inputPrecio.Text) || (unUtil is Fibron && string.IsNullOrEmpty(txb_inputPropiety.Text)))
             {
-                lbl_msjError.Visible = true;
-                lbl_msjError.Text = "Ingrese un precio para continuar";
+                MensajeErrorAgregarUtil(true);
             }
             else
             {
+                MensajeErrorAgregarUtil(false);
                 SetearValoresIngresadosEnUtil();
-
-                try//tengo que agregar el util a la lista
-                {
-                    miCartuchera.AddToCartuchera(miCartuchera, unUtil);
-                    //listaPrueba.Add(unUtil);
-                    LimpiarCamposUtil();
-                }
-                catch (Excepciones)
-                {
-                    Excepciones excep = new Excepciones();
-                    MessageBox.Show(excep.CartucheraLlenaException());
-                }
-                SeccionDGViewVisible(true);
+                IntentarAgregarUtilACartuchera();
+               
+                MostrarSeccionDGView(true);
             }
         }
 
+       
+
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-            MostrarSeccionAgregarUtil(false);
+            MostrarSeccionSetearUtil(false);
+            MostrarSeccionModificarUtil(false);
+            //unUtil = null; 
         }
 
         private void dgv_utilesMiCartuchera_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int filaSeleccionada = dgv_utilesMiCartuchera.CurrentRow.Index;
             MostrarBotonesDGV(true);
-            MostrarSeccionAgregarUtil(false);
+            MostrarSeccionSetearUtil(false);
             //logica de elegir un elemento >> lbl_detalleSeleccionado.Text = $"....";
+            if(filaSeleccionada > -1)
+            {
+                lbl_detalleSeleccionado.Text = MensajeUtilSeleccionado(filaSeleccionada);
+            }
         }
 
+        private void btn_modificar_Click(object sender, EventArgs e)
+        {
+            MostrarSeccionModificarUtil(true);
+            MostrarPropiedadesSegunUtil(unUtil.TipoUtil);
+        }
+
+        private void btn_aceptarModificarUtil_Click(object sender, EventArgs e)
+        {
+            //tengo 
+            MostrarSeccionDGView(true);
+        }
+
+        private void MostrarSeccionModificarUtil(bool visible)
+        {
+            //MostrarSeccionSetearUtil(visible);
+            MostrarPropiedadesSegunUtil(unUtil.TipoUtil);
+            btn_aceptarModificarUtil.Visible = visible;
+            
+            btn_agregar.Visible = false;
+            btn_aceptarModificarUtil.Location = btn_agregar.Location;
+        }
 
 
         //METODOS AUX
@@ -103,15 +124,15 @@ namespace CreadorCartuchera
         {
             cmb_utiles.DataSource = Enum.GetNames(typeof(eUtiles));
             btn_seleccionar.Visible = false;
-            MostrarSeccionAgregarUtil(false);
-            SeccionDGViewVisible(false);
+            MostrarSeccionSetearUtil(false);
+            MostrarSeccionDGView(false);
             cmb_marca.DataSource = Enum.GetNames(typeof(eMarcasLibreria));
-            cmb_propiety2.DataSource = Enum.GetNames(typeof(eColor));
-            lbl_inputPropiety2.Text = "Color:";
             MostrarBotonesDGV(false);
+            lbl_msjError.Visible = false;
+            btn_aceptarModificarUtil.Visible = false; 
         }
 
-        private void MostrarSeccionAgregarUtil(bool visibilidad)
+        private void MostrarSeccionSetearUtil(bool visibilidad)
         {
             gb_AgregarUtil.Visible = visibilidad;
             SeccionFibronVisible(false);
@@ -119,24 +140,24 @@ namespace CreadorCartuchera
 
         
 
-        private void MostrarPropiedadesSegunUtil(int indiceSeleccionado)
+        private void MostrarPropiedadesSegunUtil(eUtiles tipoUtil)
         {
-            MostrarSeccionAgregarUtil(true);
-            switch(indiceSeleccionado)
+            MostrarSeccionSetearUtil(true);
+            switch(tipoUtil)
             {
-                case 0:
+                case eUtiles.Lápiz:
                     LapizPropieties();
                     break;
 
-                case 1:
+                case eUtiles.Goma:
                     GomaPropieties();
                     break;
 
-                case 2:
+                case eUtiles.Sacapuntas:
                     SacapuntasPropieties();
                     break;
 
-                case 3:
+                case eUtiles.Fibrón:
                     FibronPropieties();
                     break; 
             }
@@ -149,13 +170,16 @@ namespace CreadorCartuchera
         private void LapizPropieties()
         {
             unUtil = new Lapiz();
-            unUtil.TipoUtil = "Lápiz";
+            unUtil.TipoUtil = eUtiles.Lápiz;
+
+            cmb_propiety2.DataSource = Enum.GetNames(typeof(eColor));
+            lbl_inputPropiety2.Text = "Color:";
         }
 
         private void GomaPropieties()
         {
             unUtil = new Goma();
-            unUtil.TipoUtil = "Goma";
+            unUtil.TipoUtil = eUtiles.Goma;
 
             lbl_inputPropiety2.Text = "Tipo goma:";
             cmb_propiety2.DataSource = Enum.GetNames(typeof(eTipoGoma));
@@ -164,7 +188,7 @@ namespace CreadorCartuchera
         private void SacapuntasPropieties()
         {
             unUtil = new Sacapuntas();
-            unUtil.TipoUtil = "Sacapuntas";
+            unUtil.TipoUtil = eUtiles.Sacapuntas;
 
             lbl_inputPropiety2.Text = "Material:";
             cmb_propiety2.DataSource = Enum.GetNames(typeof(eMaterial));
@@ -173,7 +197,7 @@ namespace CreadorCartuchera
         private void FibronPropieties()
         {
             unUtil = new Fibron();
-            unUtil.TipoUtil = "Fibrón";
+            unUtil.TipoUtil = eUtiles.Fibrón;
             SeccionFibronVisible(true);
         }
 
@@ -183,9 +207,11 @@ namespace CreadorCartuchera
             txb_inputPropiety.Visible = visible;
             lbl_inputPropiety.Text = "Cant tinta:";
             txb_inputPropiety.PlaceholderText = "Ingrese numero entero";
+            cmb_propiety2.DataSource = Enum.GetNames(typeof(eColor));
+            lbl_inputPropiety2.Text = "Color:";
         }
 
-        private void SeccionDGViewVisible(bool visible)
+        private void MostrarSeccionDGView(bool visible)
         {
             lbl_nombreCartu.Text = $"Útiles de cartuchera";
             lbl_nombreCartu.Visible = visible;
@@ -200,7 +226,7 @@ namespace CreadorCartuchera
         private void LimpiarCamposUtil()
         {
             txb_inputPrecio.Text = "";
-            MostrarSeccionAgregarUtil(false);
+            MostrarSeccionSetearUtil(false);
         }
 
         private void SetearValoresIngresadosEnUtil()
@@ -242,6 +268,65 @@ namespace CreadorCartuchera
             lbl_detalleSeleccionado.Visible = visible;
             btn_modificar.Visible = visible;
             btn_eliminar.Visible = visible;
+        }
+
+        private string MensajeUtilSeleccionado(int indiceUtil)
+        {
+            StringBuilder sb = new StringBuilder();
+            unUtil = miCartuchera.BuscarUtilPorIndice(indiceUtil); //ACÁ YA ME QUEDA SETEADO EL UTIL CON EL QUE ESTOY TRABAJANDO
+
+            sb.AppendLine("Tipo de útil: " + unUtil.TipoUtil);
+            sb.AppendLine("Marca: " + unUtil.Marca);
+            sb.AppendLine("Precio: $" + unUtil.Precio.ToString());
+            if (unUtil is Fibron)
+            {
+                Fibron unFibron = (Fibron)unUtil;
+                sb.AppendLine("Cantidad de tinta: " + unFibron.CantidadTinta.ToString());
+                sb.AppendLine("Color: " + unFibron.Color);
+
+            }
+            else if (unUtil is Lapiz)
+            {
+                Lapiz unLapiz = (Lapiz)unUtil;
+                sb.AppendLine("Color: " + unLapiz.Color);
+            }
+            else if (unUtil is Goma)
+            {
+                Goma unaGoma = (Goma)unUtil;
+                sb.AppendLine("Tipo de goma: " + unaGoma.Tipo);
+            }
+            else if (unUtil is Sacapuntas)
+            {
+                Sacapuntas unSacapuntas = (Sacapuntas)unUtil;
+                sb.AppendLine("Material: " + unSacapuntas.Material);
+            }
+
+            return sb.ToString();
+        }
+
+        private void MensajeErrorAgregarUtil(bool visible)
+        {
+            lbl_msjError.Visible = visible;
+
+            if (visible)
+                lbl_msjError.Text = "Para continuar, complete todos los campos";
+            else
+                lbl_msjError.Text = " ";
+        }
+
+        private void IntentarAgregarUtilACartuchera()
+        {
+            try//tengo que agregar el util a la lista
+            {
+                miCartuchera.AddToCartuchera(miCartuchera, unUtil);
+                //listaPrueba.Add(unUtil);
+                LimpiarCamposUtil();
+            }
+            catch (Excepciones)
+            {
+                Excepciones excep = new Excepciones();
+                MessageBox.Show(excep.CartucheraLlenaException());
+            }
         }
 
         

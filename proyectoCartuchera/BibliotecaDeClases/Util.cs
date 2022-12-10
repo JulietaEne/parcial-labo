@@ -8,7 +8,7 @@ namespace BibliotecaDeClases
 {
     public abstract class Util
     {
-        protected string tipoUtil;
+        protected eUtiles tipoUtil;
         protected float precio;
         protected string marca;
         
@@ -37,7 +37,7 @@ namespace BibliotecaDeClases
             set { marca = value; }
         }
 
-        public string TipoUtil
+        public eUtiles TipoUtil
         {
             get { return tipoUtil; }
             set { tipoUtil = value; }

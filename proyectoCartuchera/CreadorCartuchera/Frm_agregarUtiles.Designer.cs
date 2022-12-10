@@ -32,6 +32,7 @@
             this.btn_seleccionar = new System.Windows.Forms.Button();
             this.cmb_utiles = new System.Windows.Forms.ComboBox();
             this.gb_AgregarUtil = new System.Windows.Forms.GroupBox();
+            this.lbl_msjError = new System.Windows.Forms.Label();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.cmb_propiety2 = new System.Windows.Forms.ComboBox();
@@ -47,7 +48,7 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.lbl_detalleSeleccionado = new System.Windows.Forms.Label();
-            this.lbl_msjError = new System.Windows.Forms.Label();
+            this.btn_aceptarModificarUtil = new System.Windows.Forms.Button();
             this.gb_utiles.SuspendLayout();
             this.gb_AgregarUtil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_utilesMiCartuchera)).BeginInit();
@@ -99,10 +100,20 @@
             this.gb_AgregarUtil.Controls.Add(this.txb_inputPrecio);
             this.gb_AgregarUtil.Location = new System.Drawing.Point(56, 296);
             this.gb_AgregarUtil.Name = "gb_AgregarUtil";
-            this.gb_AgregarUtil.Size = new System.Drawing.Size(278, 268);
+            this.gb_AgregarUtil.Size = new System.Drawing.Size(278, 299);
             this.gb_AgregarUtil.TabIndex = 5;
             this.gb_AgregarUtil.TabStop = false;
             this.gb_AgregarUtil.Text = "gb_AgregarUtil";
+            // 
+            // lbl_msjError
+            // 
+            this.lbl_msjError.AutoSize = true;
+            this.lbl_msjError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_msjError.Location = new System.Drawing.Point(21, 191);
+            this.lbl_msjError.Name = "lbl_msjError";
+            this.lbl_msjError.Size = new System.Drawing.Size(87, 20);
+            this.lbl_msjError.TabIndex = 7;
+            this.lbl_msjError.Text = "lbl_msjError";
             // 
             // btn_cancelar
             // 
@@ -232,6 +243,7 @@
             this.btn_modificar.TabIndex = 8;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
             // lbl_detalleSeleccionado
             // 
@@ -242,20 +254,22 @@
             this.lbl_detalleSeleccionado.TabIndex = 10;
             this.lbl_detalleSeleccionado.Text = "lbl_detalleSeleccionado";
             // 
-            // lbl_msjError
+            // btn_aceptarModificarUtil
             // 
-            this.lbl_msjError.AutoSize = true;
-            this.lbl_msjError.Location = new System.Drawing.Point(21, 191);
-            this.lbl_msjError.Name = "lbl_msjError";
-            this.lbl_msjError.Size = new System.Drawing.Size(87, 20);
-            this.lbl_msjError.TabIndex = 7;
-            this.lbl_msjError.Text = "lbl_msjError";
+            this.btn_aceptarModificarUtil.Location = new System.Drawing.Point(89, 554);
+            this.btn_aceptarModificarUtil.Name = "btn_aceptarModificarUtil";
+            this.btn_aceptarModificarUtil.Size = new System.Drawing.Size(94, 29);
+            this.btn_aceptarModificarUtil.TabIndex = 11;
+            this.btn_aceptarModificarUtil.Text = "Aceptar";
+            this.btn_aceptarModificarUtil.UseVisualStyleBackColor = true;
+            this.btn_aceptarModificarUtil.Click += new System.EventHandler(this.btn_aceptarModificarUtil_Click);
             // 
             // Frm_agregarUtiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 621);
+            this.Controls.Add(this.btn_aceptarModificarUtil);
             this.Controls.Add(this.lbl_detalleSeleccionado);
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.btn_eliminar);
@@ -297,5 +311,6 @@
         private Button btn_modificar;
         private Label lbl_detalleSeleccionado;
         private Label lbl_msjError;
+        private Button btn_aceptarModificarUtil;
     }
 }
