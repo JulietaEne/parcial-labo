@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BibliotecaDeClases;
+using CreadorCartuchera.Iniciar_Programa;
+
 
 namespace CreadorCartuchera
 {
@@ -35,6 +37,7 @@ namespace CreadorCartuchera
         {
             Frm_agregarUtiles formAgregarUtiles = new Frm_agregarUtiles(miCartuchera);
             formAgregarUtiles.ShowDialog();
+            
         }
 
     }

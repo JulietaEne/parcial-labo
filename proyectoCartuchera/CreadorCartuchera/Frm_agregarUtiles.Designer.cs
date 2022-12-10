@@ -45,10 +45,11 @@
             this.txb_inputPropiety = new System.Windows.Forms.TextBox();
             this.txb_inputPrecio = new System.Windows.Forms.TextBox();
             this.dgv_utilesMiCartuchera = new System.Windows.Forms.DataGridView();
-            this.lbl_nombreCartu = new System.Windows.Forms.Label();
+            this.lbl_indicacionDgv = new System.Windows.Forms.Label();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.lbl_detalleSeleccionado = new System.Windows.Forms.Label();
+            this.btn_guardarCartuchera = new System.Windows.Forms.Button();
             this.gb_utiles.SuspendLayout();
             this.gb_AgregarUtil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_utilesMiCartuchera)).BeginInit();
@@ -101,14 +102,14 @@
             this.gb_AgregarUtil.Controls.Add(this.txb_inputPrecio);
             this.gb_AgregarUtil.Location = new System.Drawing.Point(56, 296);
             this.gb_AgregarUtil.Name = "gb_AgregarUtil";
-            this.gb_AgregarUtil.Size = new System.Drawing.Size(278, 269);
+            this.gb_AgregarUtil.Size = new System.Drawing.Size(278, 297);
             this.gb_AgregarUtil.TabIndex = 5;
             this.gb_AgregarUtil.TabStop = false;
             this.gb_AgregarUtil.Text = "gb_AgregarUtil";
             // 
             // btn_aceptarModificarUtil
             // 
-            this.btn_aceptarModificarUtil.Location = new System.Drawing.Point(33, 223);
+            this.btn_aceptarModificarUtil.Location = new System.Drawing.Point(21, 252);
             this.btn_aceptarModificarUtil.Name = "btn_aceptarModificarUtil";
             this.btn_aceptarModificarUtil.Size = new System.Drawing.Size(94, 29);
             this.btn_aceptarModificarUtil.TabIndex = 11;
@@ -120,7 +121,7 @@
             // 
             this.lbl_msjError.AutoSize = true;
             this.lbl_msjError.ForeColor = System.Drawing.Color.Red;
-            this.lbl_msjError.Location = new System.Drawing.Point(0, 190);
+            this.lbl_msjError.Location = new System.Drawing.Point(28, 195);
             this.lbl_msjError.Name = "lbl_msjError";
             this.lbl_msjError.Size = new System.Drawing.Size(87, 20);
             this.lbl_msjError.TabIndex = 7;
@@ -128,7 +129,7 @@
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(156, 223);
+            this.btn_cancelar.Location = new System.Drawing.Point(156, 252);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(94, 29);
             this.btn_cancelar.TabIndex = 6;
@@ -138,7 +139,7 @@
             // 
             // btn_agregar
             // 
-            this.btn_agregar.Location = new System.Drawing.Point(33, 223);
+            this.btn_agregar.Location = new System.Drawing.Point(21, 252);
             this.btn_agregar.Name = "btn_agregar";
             this.btn_agregar.Size = new System.Drawing.Size(94, 29);
             this.btn_agregar.TabIndex = 6;
@@ -228,14 +229,14 @@
             this.dgv_utilesMiCartuchera.TabIndex = 6;
             this.dgv_utilesMiCartuchera.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_utilesMiCartuchera_CellContentClick);
             // 
-            // lbl_nombreCartu
+            // lbl_indicacionDgv
             // 
-            this.lbl_nombreCartu.AutoSize = true;
-            this.lbl_nombreCartu.Location = new System.Drawing.Point(408, 47);
-            this.lbl_nombreCartu.Name = "lbl_nombreCartu";
-            this.lbl_nombreCartu.Size = new System.Drawing.Size(119, 20);
-            this.lbl_nombreCartu.TabIndex = 3;
-            this.lbl_nombreCartu.Text = "lbl_nombreCartu";
+            this.lbl_indicacionDgv.AutoSize = true;
+            this.lbl_indicacionDgv.Location = new System.Drawing.Point(408, 47);
+            this.lbl_indicacionDgv.Name = "lbl_indicacionDgv";
+            this.lbl_indicacionDgv.Size = new System.Drawing.Size(127, 20);
+            this.lbl_indicacionDgv.TabIndex = 3;
+            this.lbl_indicacionDgv.Text = "lbl_indicacionDgv";
             // 
             // btn_eliminar
             // 
@@ -266,18 +267,29 @@
             this.lbl_detalleSeleccionado.TabIndex = 10;
             this.lbl_detalleSeleccionado.Text = "lbl_detalleSeleccionado";
             // 
+            // btn_guardarCartuchera
+            // 
+            this.btn_guardarCartuchera.Location = new System.Drawing.Point(650, 548);
+            this.btn_guardarCartuchera.Name = "btn_guardarCartuchera";
+            this.btn_guardarCartuchera.Size = new System.Drawing.Size(194, 45);
+            this.btn_guardarCartuchera.TabIndex = 11;
+            this.btn_guardarCartuchera.Text = "Guardar cartuchera";
+            this.btn_guardarCartuchera.UseVisualStyleBackColor = true;
+            this.btn_guardarCartuchera.Click += new System.EventHandler(this.btn_guardarCartuchera_Click);
+            // 
             // Frm_agregarUtiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 621);
+            this.Controls.Add(this.btn_guardarCartuchera);
             this.Controls.Add(this.lbl_detalleSeleccionado);
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.dgv_utilesMiCartuchera);
             this.Controls.Add(this.gb_AgregarUtil);
             this.Controls.Add(this.gb_utiles);
-            this.Controls.Add(this.lbl_nombreCartu);
+            this.Controls.Add(this.lbl_indicacionDgv);
             this.Name = "Frm_agregarUtiles";
             this.Text = "Frm_agregarUtiles";
             this.Load += new System.EventHandler(this.Frm_agregarUtiles_Load);
@@ -307,11 +319,12 @@
         private Label lbl_inputPropiety2;
         private Button btn_cancelar;
         private DataGridView dgv_utilesMiCartuchera;
-        private Label lbl_nombreCartu;
+        private Label lbl_indicacionDgv;
         private Button btn_eliminar;
         private Button btn_modificar;
         private Label lbl_detalleSeleccionado;
         private Label lbl_msjError;
         private Button btn_aceptarModificarUtil;
+        private Button btn_guardarCartuchera;
     }
 }

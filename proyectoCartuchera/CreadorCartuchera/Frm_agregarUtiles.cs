@@ -1,4 +1,5 @@
 ﻿using BibliotecaDeClases;
+using CreadorCartuchera.Iniciar_Programa;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,8 @@ namespace CreadorCartuchera
     {
         Cartuchera<Util> miCartuchera;
         Util unUtil;
-        int utilSeleccionado; 
+        int utilSeleccionado;
+
         //List<Util> listaPrueba = new List<Util>();
 
         //CONSTRUCTOR
@@ -30,6 +32,7 @@ namespace CreadorCartuchera
         private void Frm_agregarUtiles_Load(object sender, EventArgs e)
         {
             IniciarForm();
+            
             //Size = new Size(415; 668);
         }
 
@@ -74,6 +77,7 @@ namespace CreadorCartuchera
                
                 MostrarSeccionDGView(true);
             }
+            btn_guardarCartuchera.Visible = true;
         }
 
 
@@ -119,7 +123,7 @@ namespace CreadorCartuchera
                 miCartuchera.SobrescribirUtil(unUtil, utilSeleccionado);
                 MostrarSeccionModificarUtil(false);
                 MostrarSeccionDGView(true);
-                lbl_detalleSeleccionado.Visible = false; 
+                MostrarBotonesDGV(false);
             } 
         }
 
@@ -128,15 +132,36 @@ namespace CreadorCartuchera
             DialogResult result = MessageBox.Show($"Está a pinto de eliminar un útil de la cartuchera: {MensajeUtilSeleccionado(utilSeleccionado)}", "Confirmar eliminación", MessageBoxButtons.OKCancel);
             if(result == DialogResult.OK)
             {
+                MostrarSeccionModificarUtil(false);
                 miCartuchera.EliminarUtil(unUtil, utilSeleccionado);
                 MostrarSeccionDGView(true);
-                lbl_detalleSeleccionado.Visible = false;
+                MostrarBotonesDGV(false);
             }
-        
+            
         }
 
+        private void btn_guardarCartuchera_Click(object sender, EventArgs e)
+        {
+            if (miCartuchera.CantidadElementos < 1)
+            {
+                DialogResult result = MessageBox.Show("Se guardará una cartuchera vacía", "Cartuchera vacía", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                GuardarCartuchera(result);
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Se guardará la cartuchera con útiles. Está seguro que desea salir de la carga de útiles?", "Cartuchera vacía", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                GuardarCartuchera(result);
+            }
+        }
 
-
+        private void GuardarCartuchera(DialogResult result)
+        {
+            if (result == DialogResult.Yes)
+            {
+                Frm_Inicio.GuardarArchivo = true;
+                this.Close();
+            }
+        }
 
         //METODOS AUX
         private void IniciarForm()
@@ -149,6 +174,7 @@ namespace CreadorCartuchera
             MostrarBotonesDGV(false);
             lbl_msjError.Visible = false;
             btn_aceptarModificarUtil.Visible = false; 
+            btn_guardarCartuchera.Visible = false;
         }
 
         private void MostrarSeccionSetearUtil(bool visibilidad)
@@ -234,8 +260,8 @@ namespace CreadorCartuchera
 
         private void MostrarSeccionDGView(bool visible)
         {
-            lbl_nombreCartu.Text = $"Útiles de cartuchera";
-            lbl_nombreCartu.Visible = visible;
+            lbl_indicacionDgv.Text = $"Seleccione un útil de la cartuchera para eliminarlo o modificarlo";
+            lbl_indicacionDgv.Visible = visible;
             dgv_utilesMiCartuchera.DataSource = null; //limpio el dgv
             dgv_utilesMiCartuchera.DataSource = miCartuchera.MostrarListaUtiles();//no anda
            

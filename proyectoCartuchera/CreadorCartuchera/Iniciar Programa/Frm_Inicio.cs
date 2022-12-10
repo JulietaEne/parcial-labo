@@ -21,6 +21,8 @@ namespace CreadorCartuchera.Iniciar_Programa
         int capacidad;
         float precioEvento;
 
+        static bool guardarArchivo;
+
 
         //CONSTRUCTOR
         public Frm_Inicio()
@@ -28,7 +30,12 @@ namespace CreadorCartuchera.Iniciar_Programa
             InitializeComponent();
             capacidad = capacidadIndicada;
             precioEvento = precioEventoIndicado;
+            guardarArchivo = false;
+        }
 
+        public static bool GuardarArchivo
+        {
+            set { guardarArchivo = value; }
         }
 
         //METODOS
@@ -71,19 +78,30 @@ namespace CreadorCartuchera.Iniciar_Programa
             if (r == DialogResult.Yes)
             {
                 ModificarPreferenciasDeCartuchera();
+                if (guardarArchivo == true)
+                {
+                    MostrarBotonesGuardarArchivo();
+                }
             }
             else
             {
                 MetodosAux.AbrirFormAgregarUtiles(unaCartuchera);
+                if(guardarArchivo == true)
+                {
+                    MostrarBotonesGuardarArchivo();
+                }
             }
         }
-
-
 
         private void ModificarPreferenciasDeCartuchera()
         {
             Frm_personalizarCartuchera formPersonalizar = new Frm_personalizarCartuchera(unaCartuchera);
             formPersonalizar.ShowDialog();
+        }
+
+        private void MostrarBotonesGuardarArchivo()
+        {
+            MessageBox.Show("Acá van los botones!");
         }
 
     }

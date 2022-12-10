@@ -21,13 +21,12 @@ namespace CreadorCartuchera.Iniciar_Programa
         const float precioEventoIndicado = 500;*/
 
 
-        Cartuchera<Util> miCartuchera; 
+        Cartuchera<Util> miCartuchera;
         //CONSTRUCTOR
         public Frm_personalizarCartuchera(Cartuchera<Util> unaCartuchera)
         {
             InitializeComponent();
-            miCartuchera = unaCartuchera; 
-            
+            miCartuchera = unaCartuchera;
         }
         
         //METODOS:
@@ -53,6 +52,7 @@ namespace CreadorCartuchera.Iniciar_Programa
         {
             if(AsignarPrecioACartuchera() && AsignarCapacidadACartuchera())
             {
+                this.Close();
                 MetodosAux.AbrirFormAgregarUtiles(miCartuchera);
             }
             else
