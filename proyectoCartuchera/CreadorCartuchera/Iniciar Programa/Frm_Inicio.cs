@@ -101,7 +101,8 @@ namespace CreadorCartuchera.Iniciar_Programa
 
         private void MostrarBotonesGuardarArchivo()
         {
-            MessageBox.Show("Acá van los botones!");
+            Frm_guardarArchivo formGuardarArchivo = new Frm_guardarArchivo();
+            formGuardarArchivo.ShowDialog();
         }
 
     }

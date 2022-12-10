@@ -1,4 +1,5 @@
 ﻿using BibliotecaDeClases;
+using CreadorCartuchera.Archivos;
 using CreadorCartuchera.Iniciar_Programa;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,6 +20,7 @@ namespace CreadorCartuchera
         Cartuchera<Util> miCartuchera;
         Util unUtil;
         int utilSeleccionado;
+        bool eventoPrecio; 
 
         //List<Util> listaPrueba = new List<Util>();
 
@@ -26,6 +29,7 @@ namespace CreadorCartuchera
         {
             InitializeComponent();
             this.miCartuchera = miCartuchera;
+            eventoPrecio = false;
         }
 
         //METODOS
@@ -74,14 +78,16 @@ namespace CreadorCartuchera
                 MensajeErrorAgregarUtil(false);
                 SetearValoresIngresadosEnUtil();
                 IntentarAgregarUtilACartuchera();
-               
+                EventoPrecio();
+
+
                 MostrarSeccionDGView(true);
             }
             btn_guardarCartuchera.Visible = true;
         }
 
+        
 
-       
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
@@ -154,6 +160,12 @@ namespace CreadorCartuchera
             }
         }
 
+        private void btn_leerTicket_Click(object sender, EventArgs e)
+        {
+            Frm_leerTicket formTicket = new Frm_leerTicket();
+            formTicket.Show();
+        }
+
         private void GuardarCartuchera(DialogResult result)
         {
             if (result == DialogResult.Yes)
@@ -175,6 +187,7 @@ namespace CreadorCartuchera
             lbl_msjError.Visible = false;
             btn_aceptarModificarUtil.Visible = false; 
             btn_guardarCartuchera.Visible = false;
+            MostrarSeccionTicket(false);
         }
 
         private void MostrarSeccionSetearUtil(bool visibilidad)
@@ -372,7 +385,7 @@ namespace CreadorCartuchera
             catch (Excepciones)
             {
                 Excepciones excep = new Excepciones();
-                MessageBox.Show(excep.CartucheraLlenaException());
+                MessageBox.Show(excep.CartucheraLlenaException(miCartuchera.CapacidadCartuchera));
             }
         }
 
@@ -383,6 +396,29 @@ namespace CreadorCartuchera
             btn_aceptarModificarUtil.Visible = visible;
 
             btn_agregar.Visible = false;
+        }
+
+        private void EventoPrecio()
+        {
+            if (miCartuchera.PrecioTotalCartuchera >= miCartuchera.PrecioEvento)
+            {
+                // ManejadorArchivos.EscribirArchivo(unaCartuchera.MensajeTicket, "ticket");
+                DateTime dateTime = DateTime.Now;
+                ManejadorArchivos.EscribirArchivo($"{dateTime} - Se ha superado el monto máximo indicado para la cartuchera. Monto actual {miCartuchera.PrecioTotalCartuchera}", "ticket");
+                MostrarSeccionTicket(true);
+                if (eventoPrecio == false)
+                {
+                    MessageBox.Show($"Se ha superado el monto de ${miCartuchera.PrecioEvento}.\n Monto de la cartuchera: ${miCartuchera.PrecioTotalCartuchera}.\n Los tickets se generarán en: {ManejadorArchivos.Ruta} ");
+                    eventoPrecio = true;
+                }
+            }
+        }
+
+        private void MostrarSeccionTicket(bool visible)
+        {
+            lbl_montoTotal.Text = $"Monto de la cartuchera: ${miCartuchera.PrecioTotalCartuchera}";
+            lbl_montoTotal.Visible = true;
+            btn_leerTicket.Visible = true;
         }
 
         

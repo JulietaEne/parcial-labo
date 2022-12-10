@@ -9,9 +9,9 @@ namespace BibliotecaDeClases
     [Serializable]
     public class Excepciones : Exception
     {
-        public string CartucheraLlenaException()
+        public string CartucheraLlenaException(int limiteCapacidad)
         {
-            return "cartuchera sobrecargada";
+            return $"Cartuchera llena. Se ha alcanzado el límite de capacidad de {limiteCapacidad} indicado en la cartuchera";
         }
 
         public string SinTintaException()

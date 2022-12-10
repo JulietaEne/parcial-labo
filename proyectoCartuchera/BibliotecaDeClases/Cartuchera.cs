@@ -40,6 +40,25 @@ namespace BibliotecaDeClases
             get { return listaUtiles; }
         }
 
+        public float PrecioTotalCartuchera
+        {
+            get { return CalcularPrecioTotal(); }
+        }
+
+        public float PrecioEvento
+        {
+            get { return precioEvento; }
+            set { precioEvento = value; }
+        }
+
+        public int CantidadElementos
+        {
+            get { return listaUtiles.Count(); }
+        }
+
+        //METODOS
+
+
         public List<Util> MostrarListaUtiles()
         {
             List<Util> unaLista = new List<Util> ();
@@ -82,22 +101,7 @@ namespace BibliotecaDeClases
         {
             get { return mensajeTicket; }
         }*/
-        public float PrecioTotalCartuchera
-        {
-            get { return CalcularPrecioTotal(); }
-        }
-
-        public float PrecioEvento
-        {
-            get { return precioEvento; }
-            set { precioEvento = value; }
-        }
-
-        public int CantidadElementos
-        {
-            get { return listaUtiles.Count(); }
-        }
-
+        
         //METODOS
         public List<T> AddToCartuchera(Cartuchera<T> unaCartuchera, T objeto)
         {

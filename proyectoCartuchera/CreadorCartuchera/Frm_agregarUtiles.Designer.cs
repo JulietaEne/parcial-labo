@@ -50,6 +50,8 @@
             this.btn_modificar = new System.Windows.Forms.Button();
             this.lbl_detalleSeleccionado = new System.Windows.Forms.Label();
             this.btn_guardarCartuchera = new System.Windows.Forms.Button();
+            this.lbl_montoTotal = new System.Windows.Forms.Label();
+            this.btn_leerTicket = new System.Windows.Forms.Button();
             this.gb_utiles.SuspendLayout();
             this.gb_AgregarUtil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_utilesMiCartuchera)).BeginInit();
@@ -105,7 +107,7 @@
             this.gb_AgregarUtil.Size = new System.Drawing.Size(278, 297);
             this.gb_AgregarUtil.TabIndex = 5;
             this.gb_AgregarUtil.TabStop = false;
-            this.gb_AgregarUtil.Text = "gb_AgregarUtil";
+            this.gb_AgregarUtil.Text = "Indique los datos del útil";
             // 
             // btn_aceptarModificarUtil
             // 
@@ -232,7 +234,7 @@
             // lbl_indicacionDgv
             // 
             this.lbl_indicacionDgv.AutoSize = true;
-            this.lbl_indicacionDgv.Location = new System.Drawing.Point(408, 47);
+            this.lbl_indicacionDgv.Location = new System.Drawing.Point(393, 44);
             this.lbl_indicacionDgv.Name = "lbl_indicacionDgv";
             this.lbl_indicacionDgv.Size = new System.Drawing.Size(127, 20);
             this.lbl_indicacionDgv.TabIndex = 3;
@@ -240,7 +242,7 @@
             // 
             // btn_eliminar
             // 
-            this.btn_eliminar.Location = new System.Drawing.Point(750, 404);
+            this.btn_eliminar.Location = new System.Drawing.Point(509, 360);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(94, 29);
             this.btn_eliminar.TabIndex = 7;
@@ -250,7 +252,7 @@
             // 
             // btn_modificar
             // 
-            this.btn_modificar.Location = new System.Drawing.Point(650, 404);
+            this.btn_modificar.Location = new System.Drawing.Point(409, 360);
             this.btn_modificar.Name = "btn_modificar";
             this.btn_modificar.Size = new System.Drawing.Size(94, 29);
             this.btn_modificar.TabIndex = 8;
@@ -261,7 +263,7 @@
             // lbl_detalleSeleccionado
             // 
             this.lbl_detalleSeleccionado.AutoSize = true;
-            this.lbl_detalleSeleccionado.Location = new System.Drawing.Point(408, 369);
+            this.lbl_detalleSeleccionado.Location = new System.Drawing.Point(409, 401);
             this.lbl_detalleSeleccionado.Name = "lbl_detalleSeleccionado";
             this.lbl_detalleSeleccionado.Size = new System.Drawing.Size(167, 20);
             this.lbl_detalleSeleccionado.TabIndex = 10;
@@ -269,7 +271,7 @@
             // 
             // btn_guardarCartuchera
             // 
-            this.btn_guardarCartuchera.Location = new System.Drawing.Point(650, 548);
+            this.btn_guardarCartuchera.Location = new System.Drawing.Point(527, 548);
             this.btn_guardarCartuchera.Name = "btn_guardarCartuchera";
             this.btn_guardarCartuchera.Size = new System.Drawing.Size(194, 45);
             this.btn_guardarCartuchera.TabIndex = 11;
@@ -277,11 +279,33 @@
             this.btn_guardarCartuchera.UseVisualStyleBackColor = true;
             this.btn_guardarCartuchera.Click += new System.EventHandler(this.btn_guardarCartuchera_Click);
             // 
+            // lbl_montoTotal
+            // 
+            this.lbl_montoTotal.AutoSize = true;
+            this.lbl_montoTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lbl_montoTotal.Location = new System.Drawing.Point(648, 401);
+            this.lbl_montoTotal.Name = "lbl_montoTotal";
+            this.lbl_montoTotal.Size = new System.Drawing.Size(109, 20);
+            this.lbl_montoTotal.TabIndex = 12;
+            this.lbl_montoTotal.Text = "lbl_montoTotal";
+            // 
+            // btn_leerTicket
+            // 
+            this.btn_leerTicket.Location = new System.Drawing.Point(648, 360);
+            this.btn_leerTicket.Name = "btn_leerTicket";
+            this.btn_leerTicket.Size = new System.Drawing.Size(192, 29);
+            this.btn_leerTicket.TabIndex = 13;
+            this.btn_leerTicket.Text = "Leer ticket";
+            this.btn_leerTicket.UseVisualStyleBackColor = true;
+            this.btn_leerTicket.Click += new System.EventHandler(this.btn_leerTicket_Click);
+            // 
             // Frm_agregarUtiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 621);
+            this.Controls.Add(this.btn_leerTicket);
+            this.Controls.Add(this.lbl_montoTotal);
             this.Controls.Add(this.btn_guardarCartuchera);
             this.Controls.Add(this.lbl_detalleSeleccionado);
             this.Controls.Add(this.btn_modificar);
@@ -291,7 +315,8 @@
             this.Controls.Add(this.gb_utiles);
             this.Controls.Add(this.lbl_indicacionDgv);
             this.Name = "Frm_agregarUtiles";
-            this.Text = "Frm_agregarUtiles";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Agregar útiles";
             this.Load += new System.EventHandler(this.Frm_agregarUtiles_Load);
             this.gb_utiles.ResumeLayout(false);
             this.gb_AgregarUtil.ResumeLayout(false);
@@ -326,5 +351,7 @@
         private Label lbl_msjError;
         private Button btn_aceptarModificarUtil;
         private Button btn_guardarCartuchera;
+        private Label lbl_montoTotal;
+        private Button btn_leerTicket;
     }
 }

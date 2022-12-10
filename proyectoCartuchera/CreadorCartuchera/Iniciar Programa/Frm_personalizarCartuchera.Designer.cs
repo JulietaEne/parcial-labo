@@ -54,9 +54,9 @@
             this.lbl_titulo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_titulo.Location = new System.Drawing.Point(102, 9);
             this.lbl_titulo.Name = "lbl_titulo";
-            this.lbl_titulo.Size = new System.Drawing.Size(119, 35);
+            this.lbl_titulo.Size = new System.Drawing.Size(156, 35);
             this.lbl_titulo.TabIndex = 4;
-            this.lbl_titulo.Text = "lbl_titulo";
+            this.lbl_titulo.Text = "Personalizar";
             this.lbl_titulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_inputPrecio
@@ -125,6 +125,7 @@
             this.Controls.Add(lbl_inputCapacidad);
             this.Controls.Add(this.lbl_titulo);
             this.Name = "Frm_personalizarCartuchera";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Personalizar Cartuchera";
             this.Load += new System.EventHandler(this.Frm_personalizarCartuchera_Load);
             this.ResumeLayout(false);
