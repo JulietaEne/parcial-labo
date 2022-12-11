@@ -14,12 +14,12 @@ namespace CreadorCartuchera
     public partial class Frm_guardarArchivo : Form
     {
         Cartuchera<Util> unaCartuchera;
-        bool claseLapiz; 
+        bool serializarClaseLapiz; 
         public Frm_guardarArchivo(Cartuchera<Util> unaCartuchera)
         {
             InitializeComponent();
             this.unaCartuchera = unaCartuchera;
-            claseLapiz = true; 
+            serializarClaseLapiz = true; 
         }
         private void Frm_guardarArchivo_Load(object sender, EventArgs e)
         {
@@ -29,87 +29,101 @@ namespace CreadorCartuchera
         {
             if( rbtn_cartuchera.Checked)
             {
-                claseLapiz = false; 
+                serializarClaseLapiz = false; 
             }
             gb_tipoArchivo.Visible = true; 
         }
 
         private void btn_json_Click(object sender, EventArgs e)
         {
-            string nombreArchivo = string.Empty; 
-            bool serializar = NombreArchivo(nombreArchivo);
-            if(!serializar)
-            {
-                BotonesDisponibles(false);
-            }
-            else
-            {
-                if (claseLapiz)
-                {
-                    SerializarListaLapiz(nombreArchivo);
-                }
-                else
-                {
-                    SerializarListaUtiles(nombreArchivo);
-                }
-            }
-            
-            
-        }
-
-        
-
-        private void SerializarListaLapiz(string nombreArchivo)
-        {
-            List<Lapiz> listaLapices = unaCartuchera.MostrarListaLapices();
-            //foreach (Lapiz unLapiz in listaLapices)
-            //{
-                ISerializa<Lapiz>.EscribirListaJson(listaLapices, nombreArchivo);
-                MensajeGuardadoOk(); 
-            //}
-        }
-
-        private void SerializarListaUtiles(string nombreArchivo)
-        {
-            //List<Util> listaUtiles = unaCartuchera.ListaUtiles;
-            //foreach (Util unUtil in listaUtiles)
-            //{
-                ISerializa<Util>.EscribirListaJson(unaCartuchera.ListaUtiles, nombreArchivo);
-                MensajeGuardadoOk();
-            //}
-        }
-
-        private bool NombreArchivo(string nombreArchivo)
-        {
-            //string nombreArchivo = string.Empty;
-            bool isEmpty = false; 
+            string nombreArchivo = string.Empty;
             if (string.IsNullOrEmpty(txb_nombreArchivo.Text))
             {
                 MessageBox.Show("Ingrese un nombre de archivo para guardar", "Nombre archivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //BotonesDisponibles(false);
-                 
             }
             else
             {
-                nombreArchivo = txb_nombreArchivo.Text;
-                isEmpty = true;
-                //BotonesDisponibles(true);
+                nombreArchivo = NombreArchivo();
+                if (serializarClaseLapiz)
+                {
+                    JsonListaLapiz(nombreArchivo);
+                }
+                else
+                {
+                    JsonListaUtiles(nombreArchivo);
+                }
             }
-            return isEmpty;
+        }
+
+        private void btn_xml_Click(object sender, EventArgs e)
+        {
+            string nombreArchivo = string.Empty;
+            if (string.IsNullOrEmpty(txb_nombreArchivo.Text))
+            {
+                MessageBox.Show("Ingrese un nombre de archivo para guardar", "Nombre archivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                nombreArchivo = NombreArchivo();
+                if (serializarClaseLapiz)
+                {
+                    //
+                    List<Util> listaUtiles = unaCartuchera.ListaUtiles;
+                    ISerializa<Util>.EscribirListaXml(listaUtiles, nombreArchivo);
+                    MensajeGuardadoOk();
+                    //
+                }
+                else
+                {
+                    //XmlListaUtiles(nombreArchivo);
+                }
+            } 
+               
+            
+        }
+
+
+
+        private void JsonListaLapiz(string nombreArchivo)
+        {
+            List<Lapiz> listaLapices = unaCartuchera.MostrarListaLapices();
+            if(listaLapices.Count > 0)
+            {
+                ISerializa<Lapiz>.EscribirListaJson(listaLapices, nombreArchivo);
+                MensajeGuardadoOk();
+            }
+            else
+            {
+                MessageBox.Show($"La cartuchera no tiene Lápiz");
+            }
+            
+        }
+
+        private void JsonListaUtiles(string nombreArchivo)
+        {
+            List<Util> listaUtiles = unaCartuchera.ListaUtiles;
+            ISerializa<Util>.EscribirListaJson(listaUtiles, nombreArchivo);
+            MensajeGuardadoOk();
+        }
+
+        private string NombreArchivo()
+        {
+            return  txb_nombreArchivo.Text;
         }
 
         private void MensajeGuardadoOk()
         {
-            MessageBox.Show($"Se ha guardado con éxito.");
+            MessageBox.Show("Se ha guardado con éxito.");
         }
 
-        private void BotonesDisponibles(bool enabled)
+       
+
+        private void XmlListaLapiz(string nombreArchivo)
         {
-            btn_json.Enabled = enabled;
-            btn_xml.Enabled = enabled;
+            List<Lapiz> listaLapices = unaCartuchera.MostrarListaLapices();
+            ISerializa<Lapiz>.EscribirListaXml(listaLapices, nombreArchivo);
+            MensajeGuardadoOk();
         }
-        
 
-        
     }
 }

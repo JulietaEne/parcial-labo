@@ -39,6 +39,26 @@ namespace BibliotecaDeClases
             }
         }
 
+        public static void EscribirListaXml(List<T> datos, string nombreArchivo)
+        {
+            string rutaCompleta = ruta + @"/" + nombreArchivo + ".xml";
+
+            if (!Directory.Exists(ruta))
+            {
+                Directory.CreateDirectory(ruta);
+            }
+
+            using (StreamWriter sw = new StreamWriter(rutaCompleta, true))//using-> hace la conección
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(T)); //instancio el objeto serializador de xml
+                foreach(T item in datos)
+                {
+                    xmlSerializer.Serialize(sw, item);
+                }
+                
+            }
+        }
+
         public static bool ExisteArchivo(string nombreArchivo)
         {
             if (Directory.Exists(nombreArchivo))

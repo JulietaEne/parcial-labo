@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BibliotecaDeClases
 {
+    [XmlInclude(typeof(Lapiz))]
+    [XmlInclude(typeof(Goma))]
+    [XmlInclude(typeof(Sacapuntas))]
+    [XmlInclude(typeof(Fibron))]
     public abstract class Util
     {
         protected eUtiles tipoUtil;

@@ -57,6 +57,7 @@
             this.btn_xml.TabIndex = 1;
             this.btn_xml.Text = "Guardar en .xml";
             this.btn_xml.UseVisualStyleBackColor = true;
+            this.btn_xml.Click += new System.EventHandler(this.btn_xml_Click);
             // 
             // rbtn_claseLapiz
             // 
