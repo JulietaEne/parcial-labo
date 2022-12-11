@@ -19,5 +19,10 @@ namespace BibliotecaDeClases
             return "no hay suficiente tinta";
         }
 
+        public string RutaArchivo(string ruta)
+        {
+            return $"";
+        }
+
     }
 }

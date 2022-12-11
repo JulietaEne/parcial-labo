@@ -67,22 +67,18 @@ namespace CreadorCartuchera
                 nombreArchivo = NombreArchivo();
                 if (serializarClaseLapiz)
                 {
-                    //
-                    List<Util> listaUtiles = unaCartuchera.ListaUtiles;
-                    ISerializa<Util>.EscribirListaXml(listaUtiles, nombreArchivo);
-                    MensajeGuardadoOk();
-                    //
+                    XmlListaLapiz(nombreArchivo);
                 }
                 else
                 {
-                    //XmlListaUtiles(nombreArchivo);
+                    XmlListaUtiles(nombreArchivo);
                 }
             } 
                
             
         }
 
-
+        
 
         private void JsonListaLapiz(string nombreArchivo)
         {
@@ -122,6 +118,13 @@ namespace CreadorCartuchera
         {
             List<Lapiz> listaLapices = unaCartuchera.MostrarListaLapices();
             ISerializa<Lapiz>.EscribirListaXml(listaLapices, nombreArchivo);
+            MensajeGuardadoOk();
+        }
+
+        private void XmlListaUtiles(string nombreArchivo)
+        {
+            List<Util> listaUtiles = unaCartuchera.ListaUtiles;
+            ISerializa<Util>.EscribirListaXml(listaUtiles, nombreArchivo);
             MensajeGuardadoOk();
         }
 

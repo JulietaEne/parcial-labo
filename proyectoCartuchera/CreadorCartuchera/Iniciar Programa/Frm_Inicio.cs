@@ -55,6 +55,18 @@ namespace CreadorCartuchera.Iniciar_Programa
             this.Close();
         }
 
+        private void btn_mostrarImoprtar_Click(object sender, EventArgs e)
+        {
+            MostrarSeccionImportar(true);
+        }
+
+        private void btn_importarJson_Click(object sender, EventArgs e)
+        {
+           Util unUtil =  IDeserealiza<Util>.LeerJson("Cartuchera3");
+            lbl_msjInicio.Text = unUtil.ToString();
+           
+
+        }
 
         //METODOS AUX
         private void IniciarPrograma()
@@ -63,7 +75,15 @@ namespace CreadorCartuchera.Iniciar_Programa
             lbl_msjInicio.Text = "Desea crear una cartuchera?";
             btn_1.Text = "Crear cartuchera";
             btn_0.Text = "Salir";
+            MostrarSeccionImportar(false);
+        }
 
+        private void MostrarSeccionImportar(bool visible)
+        {
+            gb_importar.Visible = visible;
+            dgv_cartucheraImportada.Visible = visible;
+            btn_modificar.Visible = visible;
+            btn_cancelar.Visible = visible;
         }
 
         private void CrearCartuchera()
@@ -105,5 +125,6 @@ namespace CreadorCartuchera.Iniciar_Programa
             formGuardarArchivo.ShowDialog();
         }
 
+        
     }
 }

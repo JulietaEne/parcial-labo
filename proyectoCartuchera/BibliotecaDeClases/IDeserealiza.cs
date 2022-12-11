@@ -10,14 +10,14 @@ using System.Xml.Serialization;
 
 namespace BibliotecaDeClases
 {
-    internal class IDeserealiza<T>
+    public class IDeserealiza<T>
     {
         static string ruta;
 
         static IDeserealiza()
         {
-            ruta = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            ruta += @"/Archivos-Serializacion";
+            ruta = AppDomain.CurrentDomain.BaseDirectory;
+            ruta += @"/Archivos-Deserializacion";
         }
 
         public static T LeerXml(string nombreArchivo)
