@@ -101,7 +101,7 @@ namespace CreadorCartuchera.Iniciar_Programa
 
         private void MostrarBotonesGuardarArchivo()
         {
-            Frm_guardarArchivo formGuardarArchivo = new Frm_guardarArchivo();
+            Frm_guardarArchivo formGuardarArchivo = new Frm_guardarArchivo(unaCartuchera);
             formGuardarArchivo.ShowDialog();
         }
 

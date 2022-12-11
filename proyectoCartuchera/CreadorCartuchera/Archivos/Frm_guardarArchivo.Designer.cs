@@ -41,6 +41,7 @@
             this.btn_json.TabIndex = 0;
             this.btn_json.Text = ".json";
             this.btn_json.UseVisualStyleBackColor = true;
+            this.btn_json.Click += new System.EventHandler(this.btn_json_Click);
             // 
             // btn_xml
             // 

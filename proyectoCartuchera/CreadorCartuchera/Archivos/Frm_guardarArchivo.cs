@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliotecaDeClases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,34 @@ namespace CreadorCartuchera
 {
     public partial class Frm_guardarArchivo : Form
     {
-        public Frm_guardarArchivo()
+        Cartuchera<Util> unaCartuchera; 
+        public Frm_guardarArchivo(Cartuchera<Util> unaCartuchera)
         {
             InitializeComponent();
+            this.unaCartuchera = unaCartuchera;
         }
 
+        private void btn_json_Click(object sender, EventArgs e)
+        {
+            List<Lapiz> listaLapices = HallarLapicesEnCartuchera();
+            foreach(Lapiz unLapiz in listaLapices)
+            {
+                ISerializa<Lapiz>.EscribirJson(unLapiz, "claseLapiz");
+            }
+        }
 
+        private List<Lapiz> HallarLapicesEnCartuchera()
+        {
+            List<Lapiz> listaLapiz = new List<Lapiz>();
+
+            foreach (Util unUtil in unaCartuchera.ListaUtiles)
+            {
+                if (unUtil is Lapiz)
+                {
+                    listaLapiz.Add((Lapiz)unUtil);
+                }
+            }
+            return listaLapiz;
+        }
     }
 }
