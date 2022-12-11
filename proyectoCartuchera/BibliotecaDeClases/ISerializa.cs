@@ -18,6 +18,11 @@ namespace BibliotecaDeClases
             ruta += @"/Archivos-Serializacion";
         }
 
+        public static string Ruta
+        {
+            get { return ruta; }
+        }
+
         public static void EscribirXml(T datos, string nombreArchivo)
         {
             string rutaCompleta = ruta + @"/" + nombreArchivo + ".xml";
@@ -45,10 +50,10 @@ namespace BibliotecaDeClases
 
        
 
-        public static void EscribirJson(T datos, string nombreArchivo)
+        public static void EscribirObjetoJson(T datos, string nombreArchivo)
         {
             string rutaCompleta = ruta + @"/" + nombreArchivo + ".json";
-
+           
             if (!Directory.Exists(ruta))
             {
                 Directory.CreateDirectory(ruta);
@@ -60,6 +65,28 @@ namespace BibliotecaDeClases
             string objetoJson = JsonSerializer.Serialize(datos, options);
 
             File.WriteAllText(rutaCompleta, objetoJson);
+        }
+
+        public static void EscribirListaJson(List<T> datos, string nombreArchivo)
+        {
+            string rutaCompleta = ruta + @"/" + nombreArchivo + ".json";
+
+            if (!Directory.Exists(ruta))
+            {
+                Directory.CreateDirectory(ruta);
+            }
+            JsonSerializerOptions options = new JsonSerializerOptions()
+            {
+                Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) },
+            };
+            StringBuilder objetoJson = new StringBuilder();
+            foreach (T item in datos)
+            {
+                 objetoJson.AppendLine( JsonSerializer.Serialize(item, options));
+            }
+            
+
+            File.WriteAllText(rutaCompleta, objetoJson.ToString());
         }
 
         

@@ -97,11 +97,13 @@ namespace BibliotecaDeClases
             }
             return listaLapices;
         }
+
+        
         /*public string MensajeTicket
         {
             get { return mensajeTicket; }
         }*/
-        
+
         //METODOS
         public List<T> AddToCartuchera(Cartuchera<T> unaCartuchera, T objeto)
         {
