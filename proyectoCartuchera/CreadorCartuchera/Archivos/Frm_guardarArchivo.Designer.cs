@@ -35,6 +35,7 @@
             this.rbtn_cartuchera = new System.Windows.Forms.RadioButton();
             this.gb_tipoArchivo = new System.Windows.Forms.GroupBox();
             this.txb_nombreArchivo = new System.Windows.Forms.TextBox();
+            this.lbl_mensaje = new System.Windows.Forms.Label();
             this.gb_dato.SuspendLayout();
             this.gb_tipoArchivo.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +63,7 @@
             // rbtn_claseLapiz
             // 
             this.rbtn_claseLapiz.AutoSize = true;
-            this.rbtn_claseLapiz.Location = new System.Drawing.Point(39, 40);
+            this.rbtn_claseLapiz.Location = new System.Drawing.Point(39, 60);
             this.rbtn_claseLapiz.Name = "rbtn_claseLapiz";
             this.rbtn_claseLapiz.Size = new System.Drawing.Size(134, 24);
             this.rbtn_claseLapiz.TabIndex = 3;
@@ -72,11 +73,12 @@
             // 
             // gb_dato
             // 
+            this.gb_dato.Controls.Add(this.lbl_mensaje);
             this.gb_dato.Controls.Add(this.rbtn_cartuchera);
             this.gb_dato.Controls.Add(this.rbtn_claseLapiz);
             this.gb_dato.Location = new System.Drawing.Point(21, 12);
             this.gb_dato.Name = "gb_dato";
-            this.gb_dato.Size = new System.Drawing.Size(250, 113);
+            this.gb_dato.Size = new System.Drawing.Size(250, 136);
             this.gb_dato.TabIndex = 4;
             this.gb_dato.TabStop = false;
             this.gb_dato.Text = "Indique datos a guardar";
@@ -85,7 +87,7 @@
             // rbtn_cartuchera
             // 
             this.rbtn_cartuchera.AutoSize = true;
-            this.rbtn_cartuchera.Location = new System.Drawing.Point(39, 70);
+            this.rbtn_cartuchera.Location = new System.Drawing.Point(39, 90);
             this.rbtn_cartuchera.Name = "rbtn_cartuchera";
             this.rbtn_cartuchera.Size = new System.Drawing.Size(168, 24);
             this.rbtn_cartuchera.TabIndex = 4;
@@ -98,7 +100,7 @@
             this.gb_tipoArchivo.Controls.Add(this.txb_nombreArchivo);
             this.gb_tipoArchivo.Controls.Add(this.btn_xml);
             this.gb_tipoArchivo.Controls.Add(this.btn_json);
-            this.gb_tipoArchivo.Location = new System.Drawing.Point(21, 131);
+            this.gb_tipoArchivo.Location = new System.Drawing.Point(21, 154);
             this.gb_tipoArchivo.Name = "gb_tipoArchivo";
             this.gb_tipoArchivo.Size = new System.Drawing.Size(250, 272);
             this.gb_tipoArchivo.TabIndex = 5;
@@ -113,11 +115,20 @@
             this.txb_nombreArchivo.Size = new System.Drawing.Size(203, 27);
             this.txb_nombreArchivo.TabIndex = 2;
             // 
+            // lbl_mensaje
+            // 
+            this.lbl_mensaje.AutoSize = true;
+            this.lbl_mensaje.Location = new System.Drawing.Point(6, 23);
+            this.lbl_mensaje.Name = "lbl_mensaje";
+            this.lbl_mensaje.Size = new System.Drawing.Size(87, 20);
+            this.lbl_mensaje.TabIndex = 5;
+            this.lbl_mensaje.Text = "lbl_mensaje";
+            // 
             // Frm_guardarArchivo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 426);
+            this.ClientSize = new System.Drawing.Size(294, 447);
             this.Controls.Add(this.gb_tipoArchivo);
             this.Controls.Add(this.gb_dato);
             this.Name = "Frm_guardarArchivo";
@@ -141,5 +152,6 @@
         private GroupBox gb_tipoArchivo;
         private RadioButton rbtn_cartuchera;
         private TextBox txb_nombreArchivo;
+        private Label lbl_mensaje;
     }
 }

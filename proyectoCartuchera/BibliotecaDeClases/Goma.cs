@@ -10,7 +10,7 @@ namespace BibliotecaDeClases
     {
         private string tipo;
 
-        public Goma()
+        public Goma():base(0, "")
         { }
         public Goma(float precio, string marca, string tipo) : base(precio, marca)
         {

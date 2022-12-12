@@ -45,7 +45,7 @@
             // 
             // btn_0
             // 
-            this.btn_0.Location = new System.Drawing.Point(438, 134);
+            this.btn_0.Location = new System.Drawing.Point(440, 170);
             this.btn_0.Name = "btn_0";
             this.btn_0.Size = new System.Drawing.Size(212, 47);
             this.btn_0.TabIndex = 0;
@@ -55,7 +55,7 @@
             // 
             // btn_1
             // 
-            this.btn_1.Location = new System.Drawing.Point(201, 134);
+            this.btn_1.Location = new System.Drawing.Point(203, 170);
             this.btn_1.Name = "btn_1";
             this.btn_1.Size = new System.Drawing.Size(212, 47);
             this.btn_1.TabIndex = 1;
@@ -85,7 +85,7 @@
             // 
             this.gb_importar.Controls.Add(this.btn_importarXlm);
             this.gb_importar.Controls.Add(this.btn_importarJson);
-            this.gb_importar.Location = new System.Drawing.Point(36, 280);
+            this.gb_importar.Location = new System.Drawing.Point(27, 308);
             this.gb_importar.Name = "gb_importar";
             this.gb_importar.Size = new System.Drawing.Size(250, 125);
             this.gb_importar.TabIndex = 4;
@@ -100,6 +100,7 @@
             this.btn_importarXlm.TabIndex = 5;
             this.btn_importarXlm.Text = "Importar .xlm";
             this.btn_importarXlm.UseVisualStyleBackColor = true;
+            this.btn_importarXlm.Click += new System.EventHandler(this.btn_importarXlm_Click);
             // 
             // btn_importarJson
             // 
@@ -114,7 +115,7 @@
             // dgv_cartucheraImportada
             // 
             this.dgv_cartucheraImportada.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_cartucheraImportada.Location = new System.Drawing.Point(317, 280);
+            this.dgv_cartucheraImportada.Location = new System.Drawing.Point(308, 308);
             this.dgv_cartucheraImportada.Name = "dgv_cartucheraImportada";
             this.dgv_cartucheraImportada.RowHeadersWidth = 51;
             this.dgv_cartucheraImportada.RowTemplate.Height = 29;
@@ -123,7 +124,7 @@
             // 
             // btn_mostrarImoprtar
             // 
-            this.btn_mostrarImoprtar.Location = new System.Drawing.Point(330, 223);
+            this.btn_mostrarImoprtar.Location = new System.Drawing.Point(321, 251);
             this.btn_mostrarImoprtar.Name = "btn_mostrarImoprtar";
             this.btn_mostrarImoprtar.Size = new System.Drawing.Size(190, 29);
             this.btn_mostrarImoprtar.TabIndex = 6;
@@ -133,16 +134,17 @@
             // 
             // btn_modificar
             // 
-            this.btn_modificar.Location = new System.Drawing.Point(568, 411);
+            this.btn_modificar.Location = new System.Drawing.Point(559, 439);
             this.btn_modificar.Name = "btn_modificar";
             this.btn_modificar.Size = new System.Drawing.Size(94, 29);
             this.btn_modificar.TabIndex = 7;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(670, 410);
+            this.btn_cancelar.Location = new System.Drawing.Point(661, 438);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(94, 29);
             this.btn_cancelar.TabIndex = 8;
@@ -153,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 451);
+            this.ClientSize = new System.Drawing.Size(800, 482);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.btn_mostrarImoprtar);

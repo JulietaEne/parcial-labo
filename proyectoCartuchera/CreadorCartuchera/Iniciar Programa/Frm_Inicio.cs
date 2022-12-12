@@ -7,7 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BibliotecaDeClases; 
+using BibliotecaDeClases;
+using Newtonsoft.Json;
+//using System.Text.Json.Serialization;
+using ManejadorDeArchivos;
+//using System.Xml.Serialization;
 
 namespace CreadorCartuchera.Iniciar_Programa
 {
@@ -21,7 +25,7 @@ namespace CreadorCartuchera.Iniciar_Programa
         int capacidad;
         float precioEvento;
 
-        static bool guardarArchivo;
+       // static bool guardarArchivo;
 
 
         //CONSTRUCTOR
@@ -30,14 +34,10 @@ namespace CreadorCartuchera.Iniciar_Programa
             InitializeComponent();
             capacidad = capacidadIndicada;
             precioEvento = precioEventoIndicado;
-            guardarArchivo = false;
+           // guardarArchivo = false;
         }
 
-        public static bool GuardarArchivo
-        {
-            set { guardarArchivo = value; }
-        }
-
+       
         //METODOS
         private void Frm_Inicio_Load_1(object sender, EventArgs e)
         {
@@ -62,10 +62,40 @@ namespace CreadorCartuchera.Iniciar_Programa
 
         private void btn_importarJson_Click(object sender, EventArgs e)
         {
-           Util unUtil =  IDeserealiza<Util>.LeerJson("Cartuchera3");
-            lbl_msjInicio.Text = unUtil.ToString();
+             Util unUtil =  IDeserealiza<Util>.LeerJson("Cartuchera3");
+             lbl_msjInicio.Text = unUtil.ToString();
+
+
+            /*string miJson = File.ReadAllText("Cartuchera3");
+            Lapiz unLapiz = JsonSerializer.Deserialize<Lapiz>(miJson);*/
            
 
+        }
+
+        private void btn_importarXlm_Click(object sender, EventArgs e)
+        {
+            /*
+             * IMPORTAR UN ONJETO anda ok 
+             * 
+             * 
+             */
+           Util unUtil = IDeserealiza<Util>.LeerXml("Cartuchera2");
+            unaCartuchera = new Cartuchera<Util>(precioEventoIndicado,capacidadIndicada);
+            unaCartuchera.AddToCartuchera(unaCartuchera, unUtil);
+            dgv_cartucheraImportada.DataSource = unaCartuchera.ListaUtiles;
+
+            //dgv_cartucheraImportada.DataSource = listaUtiles;
+            /*
+             *  IMPORTAR UNA LISTA
+             
+             List<Util> listaUtiles = IDeserealiza<Util>.LeerListaXml("Cartuchera2");
+             rtb_datos.Text = listaUtiles.ToString();
+             dgv_cartucheraImportada.DataSource = listaUtiles;*/
+        }
+
+        private void btn_modificar_Click(object sender, EventArgs e)
+        {
+            MetodosAux.AbrirFormAgregarUtiles(unaCartuchera, true);
         }
 
         //METODOS AUX
@@ -98,18 +128,18 @@ namespace CreadorCartuchera.Iniciar_Programa
             if (r == DialogResult.Yes)
             {
                 ModificarPreferenciasDeCartuchera();
-                if (guardarArchivo == true)
+               /* if (guardarArchivo == true)
                 {
                     MostrarBotonesGuardarArchivo();
-                }
+                }*/
             }
             else
             {
-                MetodosAux.AbrirFormAgregarUtiles(unaCartuchera);
-                if(guardarArchivo == true)
+                MetodosAux.AbrirFormAgregarUtiles(unaCartuchera, false);
+               /* if(guardarArchivo == true)
                 {
                     MostrarBotonesGuardarArchivo();
-                }
+                }*/
             }
         }
 
@@ -117,12 +147,6 @@ namespace CreadorCartuchera.Iniciar_Programa
         {
             Frm_personalizarCartuchera formPersonalizar = new Frm_personalizarCartuchera(unaCartuchera);
             formPersonalizar.ShowDialog();
-        }
-
-        private void MostrarBotonesGuardarArchivo()
-        {
-            Frm_guardarArchivo formGuardarArchivo = new Frm_guardarArchivo(unaCartuchera);
-            formGuardarArchivo.ShowDialog();
         }
 
         

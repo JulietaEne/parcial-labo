@@ -10,7 +10,7 @@ namespace BibliotecaDeClases
     {
         private string color;
 
-        public Lapiz ()
+        public Lapiz ():base(0,"")
         {
         }
 

@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ManejadorDeArchivos; 
 
 namespace CreadorCartuchera
 {
@@ -20,23 +21,28 @@ namespace CreadorCartuchera
         Cartuchera<Util> miCartuchera;
         Util unUtil;
         int utilSeleccionado;
-        bool eventoPrecio; 
+        bool eventoPrecio;
+        bool cartucheraCargada;
 
         //List<Util> listaPrueba = new List<Util>();
 
         //CONSTRUCTOR
-        public Frm_agregarUtiles(Cartuchera<Util> miCartuchera)
+        public Frm_agregarUtiles(Cartuchera<Util> miCartuchera, bool cartucheraCargada)
         {
             InitializeComponent();
             this.miCartuchera = miCartuchera;
             eventoPrecio = false;
+            this.cartucheraCargada = cartucheraCargada;
         }
 
         //METODOS
         private void Frm_agregarUtiles_Load(object sender, EventArgs e)
         {
             IniciarForm();
-            
+            if(cartucheraCargada==true)
+            {
+                IniciarFormCartucheraCargada();
+            }
             //Size = new Size(415; 668);
         }
 
@@ -170,8 +176,9 @@ namespace CreadorCartuchera
         {
             if (result == DialogResult.Yes)
             {
-                Frm_Inicio.GuardarArchivo = true;
-                this.Close();
+                MostrarBotonesGuardarArchivo();
+               // Frm_Inicio.GuardarArchivo = true;
+               // this.Close();
             }
         }
 
@@ -190,11 +197,21 @@ namespace CreadorCartuchera
             MostrarSeccionTicket(false);
         }
 
+        private void IniciarFormCartucheraCargada()
+        {
+            IniciarForm();
+            MostrarBotonesDGV(true);
+            dgv_utilesMiCartuchera.DataSource = miCartuchera.ListaUtiles;
+            dgv_utilesMiCartuchera.Visible = true;
+            lbl_detalleSeleccionado.Visible = false;
+        }
+
         private void MostrarSeccionSetearUtil(bool visibilidad)
         {
             gb_AgregarUtil.Visible = visibilidad;
             btn_agregar.Visible = visibilidad; 
             SeccionFibronVisible(false);
+            
         }
 
         
@@ -421,6 +438,10 @@ namespace CreadorCartuchera
             btn_leerTicket.Visible = visible;
         }
 
-        
+        private void MostrarBotonesGuardarArchivo()
+        {
+            Frm_guardarArchivo formGuardarArchivo = new Frm_guardarArchivo(miCartuchera);
+            formGuardarArchivo.ShowDialog();
+        }
     }
 }

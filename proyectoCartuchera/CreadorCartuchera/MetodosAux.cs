@@ -33,9 +33,9 @@ namespace CreadorCartuchera
             }
         }
 
-        public static void AbrirFormAgregarUtiles(Cartuchera<Util> miCartuchera)
+        public static void AbrirFormAgregarUtiles(Cartuchera<Util> miCartuchera, bool cartucheraCargada)
         {
-            Frm_agregarUtiles formAgregarUtiles = new Frm_agregarUtiles(miCartuchera);
+            Frm_agregarUtiles formAgregarUtiles = new Frm_agregarUtiles(miCartuchera, cartucheraCargada);
             formAgregarUtiles.ShowDialog();
             
         }

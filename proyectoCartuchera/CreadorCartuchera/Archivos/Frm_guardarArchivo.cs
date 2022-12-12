@@ -8,29 +8,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ManejadorDeArchivos; 
 
 namespace CreadorCartuchera
 {
     public partial class Frm_guardarArchivo : Form
     {
         Cartuchera<Util> unaCartuchera;
-        bool serializarClaseLapiz; 
+        //bool serializarClaseLapiz; 
         public Frm_guardarArchivo(Cartuchera<Util> unaCartuchera)
         {
             InitializeComponent();
             this.unaCartuchera = unaCartuchera;
-            serializarClaseLapiz = true; 
+            //serializarClaseLapiz = true; 
+            
         }
         private void Frm_guardarArchivo_Load(object sender, EventArgs e)
         {
+            gb_tipoArchivo.Visible = false;
+            lbl_mensaje.Text = "Indique qué desea guardar";
+            lbl_mensaje.Visible = false;    
             gb_tipoArchivo.Visible = false; 
         }
         private void gb_dato_Enter(object sender, EventArgs e)
         {
-            if( rbtn_cartuchera.Checked)
-            {
-                serializarClaseLapiz = false; 
-            }
+            
             gb_tipoArchivo.Visible = true; 
         }
 
@@ -44,13 +46,16 @@ namespace CreadorCartuchera
             else
             {
                 nombreArchivo = NombreArchivo();
-                if (serializarClaseLapiz)
+                if (rbtn_cartuchera.Checked)
                 {
-                    JsonListaLapiz(nombreArchivo);
+                    //serializarClaseLapiz = false;
+                    //lbl_mensaje.Text = "Guardar cartuchera";
+
+                    JsonListaUtiles(nombreArchivo); 
                 }
                 else
                 {
-                    JsonListaUtiles(nombreArchivo);
+                    JsonListaLapiz(nombreArchivo);
                 }
             }
         }
@@ -65,13 +70,15 @@ namespace CreadorCartuchera
             else
             {
                 nombreArchivo = NombreArchivo();
-                if (serializarClaseLapiz)
+                if (rbtn_cartuchera.Checked)
                 {
+                    //serializarClaseLapiz = false;
+                    //lbl_mensaje.Text = "Guardar cartuchera";
                     XmlListaLapiz(nombreArchivo);
                 }
                 else
                 {
-                    XmlListaUtiles(nombreArchivo);
+                    XmlListaLapiz(nombreArchivo);
                 }
             } 
                

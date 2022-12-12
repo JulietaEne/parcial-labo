@@ -22,3 +22,6 @@ C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\CreadorCartuchera\b
 C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\CreadorCartuchera\obj\Debug\net6.0-windows\CreadorCartuchera.csproj.CopyComplete
 C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\CreadorCartuchera\obj\Debug\net6.0-windows\CreadorCartuchera.Frm_guardarArchivo.resources
 C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\CreadorCartuchera\obj\Debug\net6.0-windows\CreadorCartuchera.Archivos.Frm_leerTicket.resources
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\CreadorCartuchera\bin\Debug\net6.0-windows\ManejadorDeArchivos.dll
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\CreadorCartuchera\bin\Debug\net6.0-windows\ManejadorDeArchivos.pdb
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\CreadorCartuchera\bin\Debug\net6.0-windows\Newtonsoft.Json.dll

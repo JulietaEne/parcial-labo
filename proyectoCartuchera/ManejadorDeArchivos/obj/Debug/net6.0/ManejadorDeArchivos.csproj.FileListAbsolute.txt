@@ -1,0 +1,12 @@
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\ManejadorDeArchivos\bin\Debug\net6.0\ManejadorDeArchivos.deps.json
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\ManejadorDeArchivos\bin\Debug\net6.0\ManejadorDeArchivos.dll
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\ManejadorDeArchivos\bin\Debug\net6.0\ManejadorDeArchivos.pdb
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\ManejadorDeArchivos\obj\Debug\net6.0\ManejadorDeArchivos.csproj.AssemblyReference.cache
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\ManejadorDeArchivos\obj\Debug\net6.0\ManejadorDeArchivos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\ManejadorDeArchivos\obj\Debug\net6.0\ManejadorDeArchivos.AssemblyInfoInputs.cache
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\ManejadorDeArchivos\obj\Debug\net6.0\ManejadorDeArchivos.AssemblyInfo.cs
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\ManejadorDeArchivos\obj\Debug\net6.0\ManejadorDeArchivos.csproj.CoreCompileInputs.cache
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\ManejadorDeArchivos\obj\Debug\net6.0\ManejadorDeArchivos.dll
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\ManejadorDeArchivos\obj\Debug\net6.0\refint\ManejadorDeArchivos.dll
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\ManejadorDeArchivos\obj\Debug\net6.0\ManejadorDeArchivos.pdb
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\ManejadorDeArchivos\obj\Debug\net6.0\ref\ManejadorDeArchivos.dll
