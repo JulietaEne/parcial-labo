@@ -36,6 +36,28 @@ namespace ManejadorDeArchivos
             return datos;
         }
 
+        public static T LeerJson(string nombreArchivo)
+        {
+            T datos = default;
+            string rutaCompleta = ruta + @"/" + nombreArchivo + ".json";
+            if (!Directory.Exists(ruta))
+            {
+                Directory.CreateDirectory(ruta);
+            }
+
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) },
+            };
+
+            string archivoJson = File.ReadAllText(rutaCompleta);
+            datos = JsonSerializer.Deserialize<T>(archivoJson, options); //POR QUE NO ANDA
+
+            return datos;
+
+            //string miJson = File.ReadAllText(nombreArchivo);
+        }
+
         public static List<T> LeerListaXml(string nombreArchivo)//no anda
         {
             //string archivo = string.Empty;
@@ -53,27 +75,7 @@ namespace ManejadorDeArchivos
             return datos;
         }
 
-        public static T LeerJson(string nombreArchivo)
-        {
-             T datos = default;
-             string rutaCompleta = ruta + @"/" + nombreArchivo + ".json";
-             if (!Directory.Exists(ruta))
-             {
-                 Directory.CreateDirectory(ruta);
-             }
-
-             JsonSerializerOptions options = new JsonSerializerOptions
-             {
-                 Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) },
-             };
-
-             string archivoJson = File.ReadAllText(rutaCompleta);
-             datos = JsonSerializer.Deserialize<T>(archivoJson, options); //POR QUE NO ANDA
-
-             return datos;
-
-            //string miJson = File.ReadAllText(nombreArchivo);
-        }
+        
 
        
 

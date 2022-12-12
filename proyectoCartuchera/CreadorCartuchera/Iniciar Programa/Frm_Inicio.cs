@@ -62,13 +62,15 @@ namespace CreadorCartuchera.Iniciar_Programa
 
         private void btn_importarJson_Click(object sender, EventArgs e)
         {
-             Util unUtil =  IDeserealiza<Util>.LeerJson("Cartuchera3");
-             lbl_msjInicio.Text = unUtil.ToString();
+            Lapiz unUtil =  IDeserealiza<Lapiz>.LeerJson("ClaseLapiz");
+            unaCartuchera = new Cartuchera<Util>(precioEventoIndicado, capacidadIndicada);
+            unaCartuchera.AddToCartuchera(unaCartuchera, unUtil);
+            dgv_cartucheraImportada.DataSource = unaCartuchera.ListaUtiles;
 
 
             /*string miJson = File.ReadAllText("Cartuchera3");
             Lapiz unLapiz = JsonSerializer.Deserialize<Lapiz>(miJson);*/
-           
+
 
         }
 
@@ -79,7 +81,7 @@ namespace CreadorCartuchera.Iniciar_Programa
              * 
              * 
              */
-           Util unUtil = IDeserealiza<Util>.LeerXml("Cartuchera2");
+            Util unUtil = IDeserealiza<Util>.LeerXml("ClaseLapiz");
             unaCartuchera = new Cartuchera<Util>(precioEventoIndicado,capacidadIndicada);
             unaCartuchera.AddToCartuchera(unaCartuchera, unUtil);
             dgv_cartucheraImportada.DataSource = unaCartuchera.ListaUtiles;
