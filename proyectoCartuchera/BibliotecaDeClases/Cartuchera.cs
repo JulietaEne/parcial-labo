@@ -5,27 +5,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using ManejadorDeArchivos; 
 
 namespace BibliotecaDeClases
 {
     public class Cartuchera<T> where T : Util
     {
-
+        private int idCartuchera;
         private int capacidadCartuchera;
         private List<T> listaUtiles = new List<T>();
         private float precioEvento;
         private List<Lapiz> listaLapices;
+        private string nombre; 
         //private string mensajeTicket;
 
         public event Func<float> eventoPrecio;
 
 
         //CONSTRUCTOR
-        public Cartuchera(float precioTope, int capacidadCartuchera)
+        public Cartuchera()
         {
+        }
+        
+        public Cartuchera(float precioTope, int capacidadCartuchera, string nombre) : this(precioTope, capacidadCartuchera)
+        {
+            this.nombre = nombre; 
+        }
+        public Cartuchera(float precioTope, int capacidadCartuchera) 
+        {
+            this.idCartuchera = LeerIdGuardado();
             this.precioEvento = precioTope;
             this.capacidadCartuchera = capacidadCartuchera;
             this.listaUtiles = new List<T>();
+            this.nombre = "Sin nombre";
         }
 
         //PROPIEDADES
@@ -54,6 +66,17 @@ namespace BibliotecaDeClases
         public int CantidadElementos
         {
             get { return listaUtiles.Count(); }
+        }
+
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value;  }
+        }
+
+        public int IdCartuchera
+        {
+            get { return idCartuchera; }
         }
 
         //METODOS
@@ -105,6 +128,25 @@ namespace BibliotecaDeClases
         }*/
 
         //METODOS
+
+
+        private int LeerIdGuardado()
+        {
+            int id;
+            int idNuevo; 
+            try
+            {
+                id = ManejadorArchivos.LeerArchivoInt("idCartuchera");
+            }
+            catch (MyException excep)
+            {
+                id = excep.ArchivoIdCartucheraNoEncontrado();
+            }
+            idNuevo = id + 1; 
+            ManejadorArchivos.SobreescribirArchivo(idNuevo, "idCartuchera");
+            return id;
+        }
+
         public List<T> AddToCartuchera(Cartuchera<T> unaCartuchera, T objeto)
         {
             if (HayEspacio())

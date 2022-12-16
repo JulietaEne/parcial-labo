@@ -33,6 +33,7 @@ namespace CreadorCartuchera
             this.miCartuchera = miCartuchera;
             eventoPrecio = false;
             this.cartucheraCargada = cartucheraCargada;
+            this.Text = $"Cartuchera {miCartuchera.Nombre} / Agregar útiles";
         }
 
         //METODOS
@@ -43,6 +44,7 @@ namespace CreadorCartuchera
             {
                 IniciarFormCartucheraCargada();
             }
+            
             //Size = new Size(415; 668);
         }
 
@@ -399,9 +401,8 @@ namespace CreadorCartuchera
                 //listaPrueba.Add(unUtil);
                 LimpiarCamposUtil();
             }
-            catch (Excepciones)
+            catch (Excepciones excep)
             {
-                Excepciones excep = new Excepciones();
                 MessageBox.Show(excep.CartucheraLlenaException(miCartuchera.CapacidadCartuchera));
             }
         }

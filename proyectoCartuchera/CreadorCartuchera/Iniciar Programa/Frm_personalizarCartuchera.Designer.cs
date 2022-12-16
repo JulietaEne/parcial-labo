@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label lbl_inputCapacidad;
+            System.Windows.Forms.Label lbl_nombre;
             this.lbl_titulo = new System.Windows.Forms.Label();
             this.lbl_inputPrecio = new System.Windows.Forms.Label();
             this.tbx_inputCapacidad = new System.Windows.Forms.TextBox();
@@ -36,13 +37,15 @@
             this.btn_guardar = new System.Windows.Forms.Button();
             this.lbl_mensaje = new System.Windows.Forms.Label();
             this.btn_noModificar = new System.Windows.Forms.Button();
+            this.txb_nombre = new System.Windows.Forms.TextBox();
             lbl_inputCapacidad = new System.Windows.Forms.Label();
+            lbl_nombre = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_inputCapacidad
             // 
             lbl_inputCapacidad.AutoSize = true;
-            lbl_inputCapacidad.Location = new System.Drawing.Point(67, 84);
+            lbl_inputCapacidad.Location = new System.Drawing.Point(67, 145);
             lbl_inputCapacidad.Name = "lbl_inputCapacidad";
             lbl_inputCapacidad.Size = new System.Drawing.Size(190, 20);
             lbl_inputCapacidad.TabIndex = 6;
@@ -62,7 +65,7 @@
             // lbl_inputPrecio
             // 
             this.lbl_inputPrecio.AutoSize = true;
-            this.lbl_inputPrecio.Location = new System.Drawing.Point(105, 158);
+            this.lbl_inputPrecio.Location = new System.Drawing.Point(105, 219);
             this.lbl_inputPrecio.Name = "lbl_inputPrecio";
             this.lbl_inputPrecio.Size = new System.Drawing.Size(116, 20);
             this.lbl_inputPrecio.TabIndex = 7;
@@ -70,23 +73,25 @@
             // 
             // tbx_inputCapacidad
             // 
-            this.tbx_inputCapacidad.Location = new System.Drawing.Point(102, 107);
+            this.tbx_inputCapacidad.Location = new System.Drawing.Point(102, 168);
             this.tbx_inputCapacidad.Name = "tbx_inputCapacidad";
+            this.tbx_inputCapacidad.PlaceholderText = "Cantidad de útiles";
             this.tbx_inputCapacidad.Size = new System.Drawing.Size(125, 27);
             this.tbx_inputCapacidad.TabIndex = 8;
             this.tbx_inputCapacidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbx_inputCapacidad_KeyPress);
             // 
             // tbx_inputPrecio
             // 
-            this.tbx_inputPrecio.Location = new System.Drawing.Point(102, 181);
+            this.tbx_inputPrecio.Location = new System.Drawing.Point(102, 242);
             this.tbx_inputPrecio.Name = "tbx_inputPrecio";
+            this.tbx_inputPrecio.PlaceholderText = "Avisar precio";
             this.tbx_inputPrecio.Size = new System.Drawing.Size(125, 27);
             this.tbx_inputPrecio.TabIndex = 9;
             this.tbx_inputPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbx_inputPrecio_KeyPress);
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(78, 315);
+            this.btn_guardar.Location = new System.Drawing.Point(78, 355);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(196, 29);
             this.btn_guardar.TabIndex = 10;
@@ -97,7 +102,7 @@
             // lbl_mensaje
             // 
             this.lbl_mensaje.AutoSize = true;
-            this.lbl_mensaje.Location = new System.Drawing.Point(67, 268);
+            this.lbl_mensaje.Location = new System.Drawing.Point(67, 308);
             this.lbl_mensaje.Name = "lbl_mensaje";
             this.lbl_mensaje.Size = new System.Drawing.Size(87, 20);
             this.lbl_mensaje.TabIndex = 11;
@@ -105,7 +110,7 @@
             // 
             // btn_noModificar
             // 
-            this.btn_noModificar.Location = new System.Drawing.Point(78, 350);
+            this.btn_noModificar.Location = new System.Drawing.Point(78, 390);
             this.btn_noModificar.Name = "btn_noModificar";
             this.btn_noModificar.Size = new System.Drawing.Size(196, 29);
             this.btn_noModificar.TabIndex = 12;
@@ -113,9 +118,28 @@
             this.btn_noModificar.UseVisualStyleBackColor = true;
             this.btn_noModificar.Click += new System.EventHandler(this.btn_noModificar_Click);
             // 
+            // txb_nombre
+            // 
+            this.txb_nombre.Location = new System.Drawing.Point(102, 81);
+            this.txb_nombre.Name = "txb_nombre";
+            this.txb_nombre.PlaceholderText = "Nombre de Cartuchera";
+            this.txb_nombre.Size = new System.Drawing.Size(125, 27);
+            this.txb_nombre.TabIndex = 14;
+            // 
+            // lbl_nombre
+            // 
+            lbl_nombre.AutoSize = true;
+            lbl_nombre.Location = new System.Drawing.Point(136, 58);
+            lbl_nombre.Name = "lbl_nombre";
+            lbl_nombre.Size = new System.Drawing.Size(64, 20);
+            lbl_nombre.TabIndex = 13;
+            lbl_nombre.Text = "Nombre";
+            // 
             // Frm_personalizarCartuchera
             // 
             this.ClientSize = new System.Drawing.Size(343, 445);
+            this.Controls.Add(this.txb_nombre);
+            this.Controls.Add(lbl_nombre);
             this.Controls.Add(this.btn_noModificar);
             this.Controls.Add(this.lbl_mensaje);
             this.Controls.Add(this.btn_guardar);
@@ -141,5 +165,6 @@
         private Button btn_guardar;
         private Label lbl_mensaje;
         private Button btn_noModificar;
+        private TextBox txb_nombre;
     }
 }

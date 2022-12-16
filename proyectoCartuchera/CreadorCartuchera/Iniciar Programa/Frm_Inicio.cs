@@ -126,22 +126,16 @@ namespace CreadorCartuchera.Iniciar_Programa
 
             
             lbl_msjInicio.Text = "Se ha creado la cartuchera" + txtCapacidad + txtAvisoTicket;
-            DialogResult r = MessageBox.Show("Desea modificar la capacidad y/o el alerta de precio?", "Modificar cartuchera", MessageBoxButtons.YesNo);
+            DialogResult r = MessageBox.Show($"Desea modificar el nombre, la capacidad y/o el alerta de precioa a Cartuchera {unaCartuchera.Nombre}? // id: {unaCartuchera.IdCartuchera}", "Modificar cartuchera", MessageBoxButtons.YesNo);
             if (r == DialogResult.Yes)
             {
                 ModificarPreferenciasDeCartuchera();
-               /* if (guardarArchivo == true)
-                {
-                    MostrarBotonesGuardarArchivo();
-                }*/
+
             }
             else
             {
                 MetodosAux.AbrirFormAgregarUtiles(unaCartuchera, false);
-               /* if(guardarArchivo == true)
-                {
-                    MostrarBotonesGuardarArchivo();
-                }*/
+
             }
         }
 

@@ -43,6 +43,50 @@ namespace ManejadorDeArchivos
             return false;
         }
 
+        public static bool EscribirArchivo(int info, string nombreArchivo)//mensaje: lo que guardo // nombreArchivo: el nombre que le asigno
+        {
+            string rutaCompleta = ruta + $@"/{nombreArchivo}" + ".log";
+            try
+            {
+                if (!Directory.Exists(ruta))//si la carpeta es inexistente
+                {
+                    Directory.CreateDirectory(ruta);//se la crea
+                }
+                using (StreamWriter sw = new StreamWriter(rutaCompleta, true))//using: para asegurar que la coneccion con el archivo se mantenga solo dentro del scope //StreamWriter: segundo paramtro true, permite appenear 
+                {
+                    sw.WriteLine(info);//escritura de archivo 
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                throw new Exception($"Error en el archivo {rutaCompleta}");//**!!** comprobar que funcione bien
+            }
+            return false;
+        }
+
+        public static bool SobreescribirArchivo(int info, string nombreArchivo)
+        {
+            string rutaCompleta = ruta + $@"/{nombreArchivo}" + ".log";
+            try
+            {
+                if (!Directory.Exists(ruta))
+                {
+                    Directory.CreateDirectory(ruta);
+                }
+                using (StreamWriter sw = new StreamWriter(rutaCompleta, false))
+                {
+                    sw.Write(info); 
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                throw new Exception($"Error en el archivo {rutaCompleta}");//**!!** comprobar que funcione bien
+            }
+            return false;
+        }
+
         public static string? BuscarArchivo(string ruta, string nombreArchivo)
         {
             string[] archivos = Directory.GetFiles(ruta);
@@ -65,22 +109,29 @@ namespace ManejadorDeArchivos
             {
                 rutaCompleta = BuscarArchivo(ruta, archivo);
                 datos = MostrarArchivo(rutaCompleta);
-                /*if (rutaCompleta != null)
-                {
-                    using (StreamReader sr = new StreamReader(rutaCompleta))
-                    {
-                        string line;
-                        line = sr.ReadToEnd();
-                        datos += line;
-                    }
-                }
-                else
-                {
-                    throw new Exception();
-                }*/
             }
+            
             return datos;
         }
+
+        public static int LeerArchivoInt(string archivo)
+        {
+            string rutaCompleta;
+            int datos = 0;
+
+            if (Directory.Exists(ruta))
+            {
+                rutaCompleta = BuscarArchivo(ruta, archivo);
+                int.TryParse(MostrarArchivo(rutaCompleta), out datos);
+            }
+            else
+            {
+                throw new MyException();
+            }
+
+            return datos;
+        }
+
 
         public static string LeerArchivoIndicado(string rutaIngresada)
         {
@@ -101,7 +152,7 @@ namespace ManejadorDeArchivos
             }
             else
             {
-                throw new Exception();
+                throw new MyException();//la ruta no existe
             }
             return datos; 
         }

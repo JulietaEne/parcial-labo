@@ -27,6 +27,7 @@ namespace CreadorCartuchera.Iniciar_Programa
         {
             InitializeComponent();
             miCartuchera = unaCartuchera;
+            this.Text = $"Personalizar Cartuchera: {miCartuchera.Nombre}";
         }
         
         //METODOS:
@@ -50,16 +51,31 @@ namespace CreadorCartuchera.Iniciar_Programa
         //de comportamiento: 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            
             if(AsignarPrecioACartuchera() && AsignarCapacidadACartuchera())
             {
-                this.Close();
-                MetodosAux.AbrirFormAgregarUtiles(miCartuchera, false);
+                try
+                {
+                    AsignarNombreCartuchera();
+                    AgregarUtilesEnCartuchera();
+                }
+                catch (Exception)
+                {
+                    DialogResult result = MessageBox.Show("Cartuchera sin nombre asignado. Está seguro que desea continuar?", $"Cartuchera {miCartuchera.Nombre}",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+                    if(result == DialogResult.OK)
+                    {
+                        AgregarUtilesEnCartuchera();
+                    }   
+                }
+               
             }
             else
             {
                 AvisoCamposSinCompletar();
             }
         }
+
+        
 
         private void btn_noModificar_Click(object sender, EventArgs e)
         {
@@ -76,6 +92,19 @@ namespace CreadorCartuchera.Iniciar_Programa
             tbx_inputPrecio.Text = $"{miCartuchera.PrecioEvento}";
             lbl_mensaje.Visible = false;
             btn_noModificar.Visible = false;
+        }
+
+        private void AsignarNombreCartuchera()
+        {
+            if (!string.IsNullOrEmpty(txb_nombre.Text))
+            {
+                miCartuchera.Nombre = txb_nombre.Text;
+            }
+            else
+            {
+                throw new Exception();
+               // MessageBox.Show($"nombre de cartu : {miCartuchera.Nombre}");
+            }
         }
 
         private bool AsignarPrecioACartuchera()
@@ -115,6 +144,11 @@ namespace CreadorCartuchera.Iniciar_Programa
             miCartuchera.PrecioEvento = 500;
             miCartuchera.CapacidadCartuchera = 15;
         }
-        
+
+        private void AgregarUtilesEnCartuchera()
+        {
+            this.Close();
+            MetodosAux.AbrirFormAgregarUtiles(miCartuchera, false);
+        }
     }
 }

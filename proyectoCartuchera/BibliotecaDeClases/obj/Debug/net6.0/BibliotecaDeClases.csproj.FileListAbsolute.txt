@@ -10,3 +10,6 @@ C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\BibliotecaDeClases\
 C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\BibliotecaDeClases\obj\Debug\net6.0\refint\BibliotecaDeClases.dll
 C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\BibliotecaDeClases\obj\Debug\net6.0\BibliotecaDeClases.pdb
 C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\BibliotecaDeClases\obj\Debug\net6.0\ref\BibliotecaDeClases.dll
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\BibliotecaDeClases\bin\Debug\net6.0\ManejadorDeArchivos.dll
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\BibliotecaDeClases\bin\Debug\net6.0\ManejadorDeArchivos.pdb
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\BibliotecaDeClases\obj\Debug\net6.0\BibliotecaDeClases.csproj.CopyComplete
