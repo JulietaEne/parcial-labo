@@ -20,6 +20,8 @@ namespace ManejadorDeArchivos
             ruta += @"/Archivos-Deserializacion";
         }
 
+
+
         public static T LeerXml(string nombreArchivo)
         {
             //string archivo = string.Empty;

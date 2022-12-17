@@ -4,49 +4,107 @@ using BibliotecaDeClases;
 using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Runtime.CompilerServices;
 
 namespace AccesoDatos
 {
     public class CartucheraDAO
     {
+        static string dataBase;
+        static string table;
+        static SqlConnection connection = null;
+
+        static CartucheraDAO()
+        {
+            dataBase = "CartucheraDB";
+            table = "Cartucheras2";
+            try
+            {
+                connection = ManejadorAccesoDatos.Connection(dataBase);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         public List<Cartuchera<Util>> ObtenerCartucheras()
         {
             List<Cartuchera<Util>> listaCartucheras = new List<Cartuchera<Util>>();
 
-
-            string connectionString = @"Server = . ; Database = CartucheraDB; Trusted_Connection = True; Trust Server Certificate=true";
-            SqlConnection connection = new SqlConnection(connectionString); //puente entre el programa y la base de datos
-
-            connection.Open();
-            SqlCommand command = new SqlCommand();
-
-             //SqlCommand command = connection.CreateCommand();encargado de transportar la consulta
-            command.Connection = connection;//a la propiedad le seteo la sqlConnection
-
-            command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT * FROM Cartucheras2";
-
-            SqlDataReader infoLeida =  command.ExecuteReader();
-           
-            while (infoLeida.Read())//recorro la tabla registro a registro. Retorna true si hay datos por leer
+            try
             {
-                //para mapear la informacion
-                int id = infoLeida.GetInt32(0);
-                int capacidad = infoLeida.GetInt32(1);
-                float precioEvento = (float)infoLeida.GetDouble(2);
-                string nombre = infoLeida.GetString(3);
+                ManejadorAccesoDatos.AbrirConeccion(connection);
 
-                Cartuchera<Util> cartucheraLeida = new Cartuchera<Util>(id, precioEvento, capacidad, nombre);
-                listaCartucheras.Add(cartucheraLeida);
+
+                SqlDataReader infoLeida = ManejadorAccesoDatos.ConsultaSql(connection, $"SELECT * FROM {table}").ExecuteReader();//command.ExecuteReader();
+
+                while (infoLeida.Read())//recorro la tabla registro a registro. Retorna true si hay datos por leer
+                {
+                    Cartuchera<Util> cartucheraLeida = MapearCartuchera(infoLeida);
+                    listaCartucheras.Add(cartucheraLeida);
+                }
             }
-
-            if(connection.State == ConnectionState.Open)
+            catch(Exception)
             {
-                connection.Close();
+                throw;
             }
+            finally
+            {
+                ManejadorAccesoDatos.CerrarConeccion(connection);
+            }
+            
 
             return listaCartucheras;
+        }
+
+        public void AgregarCartuchera(Cartuchera<Util> miCartuchera)
+        {
+            try
+            {
+                ManejadorAccesoDatos.AbrirConeccion(connection);
+
+               
+                SqlCommand command = ManejadorAccesoDatos.ConsultaSql(connection, $"SET IDENTITY_INSERT {table} ON INSERT INTO {table} VALUES (@id, @precioTope, @capacidadCartuchera, @nombre) SELECT * FROM {table} SET IDENTITY_INSERT {table} OFF");
+
+                 command.Parameters.AddWithValue("@id", miCartuchera.IdCartuchera);
+                 command.Parameters.AddWithValue("@precioTope", miCartuchera.PrecioEvento);
+                 command.Parameters.AddWithValue("@capacidadCartuchera", miCartuchera.CapacidadCartuchera);
+                 command.Parameters.AddWithValue("@nombre", miCartuchera.Nombre);
+
+                 command.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                ManejadorAccesoDatos.CerrarConeccion(connection);
+            }
+            
+           
+        
+        
+        }
+
+        
+
+
+
+        private Cartuchera<Util> MapearCartuchera(SqlDataReader infoLeida)
+        {
+            int id = infoLeida.GetInt32(0);
+            int capacidad = infoLeida.GetInt32(1);
+            float precioEvento = (float)infoLeida.GetDouble(2);
+            string nombre = infoLeida.GetString(3); //<- si acepta nulos, validar lo qeu leo
+                                                    //-> infoLeida.IsDBNull(x) ? null : infoLeida.GetString(x)
+                                                    //se lee: si es null, devuelve nulo, sino lo es, devuelve string
+
+            Cartuchera<Util> cartucheraLeida = new Cartuchera<Util>(id, precioEvento, capacidad, nombre);
+
+            return cartucheraLeida;
         }
 
     }

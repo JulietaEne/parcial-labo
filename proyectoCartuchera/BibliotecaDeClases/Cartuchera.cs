@@ -51,13 +51,8 @@ namespace BibliotecaDeClases
 
         public string Nombre
         {
-            get { return nombre; }
+            get     { return nombre; }
             set { nombre = value; }
-        }
-
-        public float PrecioTotalCartuchera
-        {
-            get { return CalcularPrecioTotal(); }
         }
 
         public float PrecioEvento
@@ -74,6 +69,10 @@ namespace BibliotecaDeClases
         public int CantidadElementosContenidos
         {
             get { return listaUtiles.Count(); }
+        }
+        public float PrecioTotalCartuchera
+        {
+            get { return CalcularPrecioTotal(); }
         }
 
         public List<T> ListaUtiles

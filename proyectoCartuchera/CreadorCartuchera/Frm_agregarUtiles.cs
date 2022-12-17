@@ -12,7 +12,8 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ManejadorDeArchivos; 
+using ManejadorDeArchivos;
+using AccesoDatos;
 
 namespace CreadorCartuchera
 {
@@ -165,6 +166,7 @@ namespace CreadorCartuchera
             {
                 DialogResult result = MessageBox.Show("Se guardará la cartuchera con útiles. Está seguro que desea salir de la carga de útiles?", "Cartuchera vacía", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 GuardarCartuchera(result);
+                PersistirCartucheraBaseDatos();
             }
         }
 
@@ -443,6 +445,19 @@ namespace CreadorCartuchera
         {
             Frm_guardarArchivo formGuardarArchivo = new Frm_guardarArchivo(miCartuchera);
             formGuardarArchivo.ShowDialog();
+        }
+
+        private void PersistirCartucheraBaseDatos()
+        {
+            try
+            {
+                CartucheraDAO cartucheraDAO = new CartucheraDAO();
+                cartucheraDAO.AgregarCartuchera(miCartuchera);
+            }
+            catch(Exception except)
+            {
+                MessageBox.Show("tenemos un error : " + except.Message);
+            }
         }
     }
 }
