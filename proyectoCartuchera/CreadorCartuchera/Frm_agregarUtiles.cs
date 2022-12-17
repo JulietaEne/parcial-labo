@@ -156,7 +156,7 @@ namespace CreadorCartuchera
 
         private void btn_guardarCartuchera_Click(object sender, EventArgs e)
         {
-            if (miCartuchera.CantidadElementos < 1)
+            if (miCartuchera.CantidadElementosContenidos < 1)
             {
                 DialogResult result = MessageBox.Show("Se guardará una cartuchera vacía", "Cartuchera vacía", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 GuardarCartuchera(result);

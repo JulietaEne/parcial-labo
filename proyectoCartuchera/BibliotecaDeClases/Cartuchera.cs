@@ -26,7 +26,10 @@ namespace BibliotecaDeClases
         public Cartuchera()
         {
         }
-        
+        public Cartuchera(int idCartuchera, float precioTope, int capacidadCartuchera, string nombre) : this(precioTope, capacidadCartuchera, nombre)
+        {
+            this.idCartuchera = idCartuchera;
+        }
         public Cartuchera(float precioTope, int capacidadCartuchera, string nombre) : this(precioTope, capacidadCartuchera)
         {
             this.nombre = nombre; 
@@ -41,15 +44,15 @@ namespace BibliotecaDeClases
         }
 
         //PROPIEDADES
-        public int CapacidadCartuchera
+        public int IdCartuchera
         {
-            get { return capacidadCartuchera; }
-            set { capacidadCartuchera = value; } 
+            get { return idCartuchera; }
         }
 
-        public List<T> ListaUtiles
+        public string Nombre
         {
-            get { return listaUtiles; }
+            get { return nombre; }
+            set { nombre = value; }
         }
 
         public float PrecioTotalCartuchera
@@ -63,21 +66,27 @@ namespace BibliotecaDeClases
             set { precioEvento = value; }
         }
 
-        public int CantidadElementos
+        public int CapacidadCartuchera
+        {
+            get { return capacidadCartuchera; }
+            set { capacidadCartuchera = value; } 
+        }
+        public int CantidadElementosContenidos
         {
             get { return listaUtiles.Count(); }
         }
 
-        public string Nombre
+        public List<T> ListaUtiles
         {
-            get { return nombre; }
-            set { nombre = value;  }
+            get { return listaUtiles; }
         }
 
-        public int IdCartuchera
-        {
-            get { return idCartuchera; }
-        }
+        
+
+        
+
+        
+        
 
         //METODOS
 
