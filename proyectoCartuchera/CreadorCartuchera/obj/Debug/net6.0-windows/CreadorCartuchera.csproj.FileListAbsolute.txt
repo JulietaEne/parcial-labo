@@ -48,3 +48,5 @@ C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\CreadorCartuchera\b
 C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\CreadorCartuchera\bin\Debug\net6.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\CreadorCartuchera\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\CreadorCartuchera\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\CreadorCartuchera\bin\Debug\net6.0-windows\AccesoDatos.dll
+C:\Users\54112\Desktop\recuSegundoParcial\proyectoCartuchera\CreadorCartuchera\bin\Debug\net6.0-windows\AccesoDatos.pdb

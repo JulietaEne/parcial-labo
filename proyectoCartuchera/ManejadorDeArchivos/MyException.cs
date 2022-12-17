@@ -11,7 +11,7 @@ namespace ManejadorDeArchivos
     {
         public int ArchivoIdCartucheraNoEncontrado()
         {
-            ManejadorArchivos.SobreescribirArchivo(1,"idCartuchera");
+            ManejadorArchivos.SobreescribirArchivo(100,"idCartuchera");
             return ManejadorArchivos.LeerArchivoInt("idCartuchera");  
         }
 

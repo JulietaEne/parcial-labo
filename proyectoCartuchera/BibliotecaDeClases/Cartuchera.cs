@@ -11,13 +11,13 @@ namespace BibliotecaDeClases
 {
     public class Cartuchera<T> where T : Util
     {
-        private int idCartuchera;
-        private int capacidadCartuchera;
+        private int idCartuchera; //en base
+        private int capacidadCartuchera; //en base
         private List<T> listaUtiles = new List<T>();
-        private float precioEvento;
+        private float precioEvento; //en base
         private List<Lapiz> listaLapices;
-        private string nombre; 
-        //private string mensajeTicket;
+        private string nombre; //en base
+
 
         public event Func<float> eventoPrecio;
 
@@ -143,7 +143,7 @@ namespace BibliotecaDeClases
                 id = excep.ArchivoIdCartucheraNoEncontrado();
             }
             idNuevo = id + 1; 
-            ManejadorArchivos.SobreescribirArchivo(idNuevo, "idCartuchera");
+            ManejadorArchivos.SobreescribirArchivo(idNuevo, "idCartuchera"); //esto deberia suceder solo cuando guardo una cartu
             return id;
         }
 

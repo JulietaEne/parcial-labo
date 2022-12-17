@@ -1,0 +1,197 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\AccesoDatos\\AccesoDatos.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\AccesoDatos\\AccesoDatos.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\AccesoDatos\\AccesoDatos.csproj",
+        "projectName": "AccesoDatos",
+        "projectPath": "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\AccesoDatos\\AccesoDatos.csproj",
+        "packagesPath": "C:\\Users\\54112\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\AccesoDatos\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\54112\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\BibliotecaDeClases\\BibliotecaDeClases.csproj": {
+                "projectPath": "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\BibliotecaDeClases\\BibliotecaDeClases.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\BibliotecaDeClases\\BibliotecaDeClases.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\BibliotecaDeClases\\BibliotecaDeClases.csproj",
+        "projectName": "BibliotecaDeClases",
+        "projectPath": "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\BibliotecaDeClases\\BibliotecaDeClases.csproj",
+        "packagesPath": "C:\\Users\\54112\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\BibliotecaDeClases\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\54112\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\ManejadorDeArchivos\\ManejadorDeArchivos.csproj": {
+                "projectPath": "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\ManejadorDeArchivos\\ManejadorDeArchivos.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\ManejadorDeArchivos\\ManejadorDeArchivos.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\ManejadorDeArchivos\\ManejadorDeArchivos.csproj",
+        "projectName": "ManejadorDeArchivos",
+        "projectPath": "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\ManejadorDeArchivos\\ManejadorDeArchivos.csproj",
+        "packagesPath": "C:\\Users\\54112\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\ManejadorDeArchivos\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\54112\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

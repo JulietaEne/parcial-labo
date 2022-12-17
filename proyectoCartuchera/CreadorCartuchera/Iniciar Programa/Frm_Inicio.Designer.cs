@@ -39,6 +39,7 @@
             this.btn_mostrarImoprtar = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
+            this.btn_baseDatos = new System.Windows.Forms.Button();
             this.gb_importar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cartucheraImportada)).BeginInit();
             this.SuspendLayout();
@@ -83,11 +84,12 @@
             // 
             // gb_importar
             // 
+            this.gb_importar.Controls.Add(this.btn_baseDatos);
             this.gb_importar.Controls.Add(this.btn_importarXlm);
             this.gb_importar.Controls.Add(this.btn_importarJson);
             this.gb_importar.Location = new System.Drawing.Point(27, 308);
             this.gb_importar.Name = "gb_importar";
-            this.gb_importar.Size = new System.Drawing.Size(250, 125);
+            this.gb_importar.Size = new System.Drawing.Size(250, 161);
             this.gb_importar.TabIndex = 4;
             this.gb_importar.TabStop = false;
             this.gb_importar.Text = "Importar cartuchera";
@@ -119,7 +121,7 @@
             this.dgv_cartucheraImportada.Name = "dgv_cartucheraImportada";
             this.dgv_cartucheraImportada.RowHeadersWidth = 51;
             this.dgv_cartucheraImportada.RowTemplate.Height = 29;
-            this.dgv_cartucheraImportada.Size = new System.Drawing.Size(447, 125);
+            this.dgv_cartucheraImportada.Size = new System.Drawing.Size(447, 161);
             this.dgv_cartucheraImportada.TabIndex = 5;
             // 
             // btn_mostrarImoprtar
@@ -134,7 +136,7 @@
             // 
             // btn_modificar
             // 
-            this.btn_modificar.Location = new System.Drawing.Point(559, 439);
+            this.btn_modificar.Location = new System.Drawing.Point(559, 476);
             this.btn_modificar.Name = "btn_modificar";
             this.btn_modificar.Size = new System.Drawing.Size(94, 29);
             this.btn_modificar.TabIndex = 7;
@@ -144,18 +146,28 @@
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(661, 438);
+            this.btn_cancelar.Location = new System.Drawing.Point(661, 475);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(94, 29);
             this.btn_cancelar.TabIndex = 8;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
             // 
+            // btn_baseDatos
+            // 
+            this.btn_baseDatos.Location = new System.Drawing.Point(19, 126);
+            this.btn_baseDatos.Name = "btn_baseDatos";
+            this.btn_baseDatos.Size = new System.Drawing.Size(214, 29);
+            this.btn_baseDatos.TabIndex = 6;
+            this.btn_baseDatos.Text = "Ver Base Datos";
+            this.btn_baseDatos.UseVisualStyleBackColor = true;
+            this.btn_baseDatos.Click += new System.EventHandler(this.btn_baseDatos_Click);
+            // 
             // Frm_Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 482);
+            this.ClientSize = new System.Drawing.Size(800, 516);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.btn_mostrarImoprtar);
@@ -188,5 +200,6 @@
         private Button btn_mostrarImoprtar;
         private Button btn_modificar;
         private Button btn_cancelar;
+        private Button btn_baseDatos;
     }
 }

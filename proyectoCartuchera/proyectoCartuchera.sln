@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreadorCartuchera", "Creado
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaDeClases", "BibliotecaDeClases\BibliotecaDeClases.csproj", "{9BF9AC8B-98C7-476B-A6FB-00C7623387B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManejadorDeArchivos", "ManejadorDeArchivos\ManejadorDeArchivos.csproj", "{C7EE1F1B-4936-4826-949A-08474E1E0989}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManejadorDeArchivos", "ManejadorDeArchivos\ManejadorDeArchivos.csproj", "{C7EE1F1B-4936-4826-949A-08474E1E0989}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDatos", "AccesoDatos\AccesoDatos.csproj", "{9CC9E620-29BD-47F3-AFE3-C78F55BCA479}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{C7EE1F1B-4936-4826-949A-08474E1E0989}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7EE1F1B-4936-4826-949A-08474E1E0989}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7EE1F1B-4936-4826-949A-08474E1E0989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CC9E620-29BD-47F3-AFE3-C78F55BCA479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CC9E620-29BD-47F3-AFE3-C78F55BCA479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CC9E620-29BD-47F3-AFE3-C78F55BCA479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CC9E620-29BD-47F3-AFE3-C78F55BCA479}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "CreadorCartuchera/1.0.0": {
         "dependencies": {
+          "AccesoDatos": "1.0.0",
           "BibliotecaDeClases": "1.0.0",
           "ManejadorDeArchivos": "1.0.0"
         },
@@ -394,6 +395,15 @@
           "System.Drawing.Common": "5.0.0"
         }
       },
+      "AccesoDatos/1.0.0": {
+        "dependencies": {
+          "BibliotecaDeClases": "1.0.0",
+          "Microsoft.Data.SqlClient": "5.0.1"
+        },
+        "runtime": {
+          "AccesoDatos.dll": {}
+        }
+      },
       "BibliotecaDeClases/1.0.0": {
         "dependencies": {
           "ManejadorDeArchivos": "1.0.0"
@@ -754,6 +764,11 @@
       "sha512": "sha512-c1ho9WU9ZxMZawML+ssPKZfdnrg/OjR3pe0m9v8230z3acqphwvPJqzAkH54xRYm5ntZHGG1EPP3sux9H3qSPg==",
       "path": "system.windows.extensions/5.0.0",
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
+    },
+    "AccesoDatos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "BibliotecaDeClases/1.0.0": {
       "type": "project",

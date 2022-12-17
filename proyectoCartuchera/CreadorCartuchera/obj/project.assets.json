@@ -792,6 +792,20 @@
           }
         }
       },
+      "AccesoDatos/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "BibliotecaDeClases": "1.0.0",
+          "Microsoft.Data.SqlClient": "5.0.1"
+        },
+        "compile": {
+          "bin/placeholder/AccesoDatos.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AccesoDatos.dll": {}
+        }
+      },
       "BibliotecaDeClases/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2628,6 +2642,11 @@
         "version.txt"
       ]
     },
+    "AccesoDatos/1.0.0": {
+      "type": "project",
+      "path": "../AccesoDatos/AccesoDatos.csproj",
+      "msbuildProject": "../AccesoDatos/AccesoDatos.csproj"
+    },
     "BibliotecaDeClases/1.0.0": {
       "type": "project",
       "path": "../BibliotecaDeClases/BibliotecaDeClases.csproj",
@@ -2641,6 +2660,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "AccesoDatos >= 1.0.0",
       "BibliotecaDeClases >= 1.0.0",
       "ManejadorDeArchivos >= 1.0.0"
     ]
@@ -2672,6 +2692,9 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
+            "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\AccesoDatos\\AccesoDatos.csproj": {
+              "projectPath": "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\AccesoDatos\\AccesoDatos.csproj"
+            },
             "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\BibliotecaDeClases\\BibliotecaDeClases.csproj": {
               "projectPath": "C:\\Users\\54112\\Desktop\\recuSegundoParcial\\proyectoCartuchera\\BibliotecaDeClases\\BibliotecaDeClases.csproj"
             },

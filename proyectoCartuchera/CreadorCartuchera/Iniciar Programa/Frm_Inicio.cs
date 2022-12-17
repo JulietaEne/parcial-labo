@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 //using System.Text.Json.Serialization;
 using ManejadorDeArchivos;
 //using System.Xml.Serialization;
+using AccesoDatos;
 
 namespace CreadorCartuchera.Iniciar_Programa
 {
@@ -126,7 +127,7 @@ namespace CreadorCartuchera.Iniciar_Programa
 
             
             lbl_msjInicio.Text = "Se ha creado la cartuchera" + txtCapacidad + txtAvisoTicket;
-            DialogResult r = MessageBox.Show($"Desea modificar el nombre, la capacidad y/o el alerta de precioa a Cartuchera {unaCartuchera.Nombre}? // id: {unaCartuchera.IdCartuchera}", "Modificar cartuchera", MessageBoxButtons.YesNo);
+            DialogResult r = MessageBox.Show($"Desea modificar el nombre, la capacidad y/o el alerta de precioa a Cartuchera {unaCartuchera.Nombre}?", "Modificar cartuchera", MessageBoxButtons.YesNo);
             if (r == DialogResult.Yes)
             {
                 ModificarPreferenciasDeCartuchera();
@@ -145,6 +146,10 @@ namespace CreadorCartuchera.Iniciar_Programa
             formPersonalizar.ShowDialog();
         }
 
-        
+        private void btn_baseDatos_Click(object sender, EventArgs e)
+        {
+            CartucheraDAO listaCartucheras = new CartucheraDAO();
+            dgv_cartucheraImportada.DataSource = listaCartucheras.ObtenerCartucheras();
+        }
     }
 }
